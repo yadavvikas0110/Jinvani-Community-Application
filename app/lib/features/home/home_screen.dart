@@ -61,6 +61,12 @@ class HomeScreen extends ConsumerWidget {
               onOpen: (id) => context.push('/feed/$id'),
             ),
             const SizedBox(height: 24),
+            _FeaturedSection(
+              onCalendar: () => context.push('/calendar'),
+              onLocation: () => context.push('/location'),
+              onDirectory: () => context.push('/directory'),
+            ),
+            const SizedBox(height: 24),
             _RecommendedJobsSection(
               onViewAll: () => context.push('/jobs'),
             ),
@@ -264,7 +270,7 @@ class _QuickViewTiles extends StatelessWidget {
               _QuickTile(
                 icon: 'assets/icons/quickview/directory_b.svg',
                 label: 'Directory',
-                onTap: () {},
+                onTap: () => context.push('/directory'),
               ),
               _QuickTile(
                 icon: 'assets/icons/quickview/family.svg',
@@ -826,5 +832,144 @@ class _JobPill extends StatelessWidget {
       ),
     );
   }
+}
+
+// ── Featured section (Calendar + Directory shortcuts) ─────────────────────────
+
+class _FeaturedSection extends StatelessWidget {
+  final VoidCallback onCalendar;
+  final VoidCallback onLocation;
+  final VoidCallback onDirectory;
+  const _FeaturedSection({
+    required this.onCalendar,
+    required this.onLocation,
+    required this.onDirectory,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Expanded(
+                child: Text(
+                  'Featured',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black),
+                ),
+              ),
+              const Text(
+                'View All',
+                style: TextStyle(
+                    fontSize: 13,
+                    color: _linkBlue,
+                    fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          _FeaturedTile(
+            icon: Icons.calendar_month_outlined,
+            iconColor: const Color(0xFF7C3AED),
+            iconBg: const Color(0xFFF3F0FF),
+            title: 'Jain Calendar',
+            subtitle: 'Festivals, Paryushana & more!',
+            onTap: onCalendar,
+          ),
+          const SizedBox(height: 10),
+          _FeaturedTile(
+            icon: Icons.place_outlined,
+            iconColor: const Color(0xFFD97706),
+            iconBg: const Color(0xFFFFF7ED),
+            title: 'Jain Location',
+            subtitle: 'Temples, Centres & more!',
+            onTap: onLocation,
+          ),
+          const SizedBox(height: 10),
+          _FeaturedTile(
+            icon: Icons.people_alt_outlined,
+            iconColor: const Color(0xFF1B449C),
+            iconBg: const Color(0xFFEEF2FF),
+            title: 'Jain Directory',
+            subtitle: 'Trusted, admin-curated profiles',
+            onTap: onDirectory,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FeaturedTile extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final Color iconBg;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+  const _FeaturedTile({
+    required this.icon,
+    required this.iconColor,
+    required this.iconBg,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: _cardBorder),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: iconBg,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(icon, color: iconColor, size: 22),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: _textDark,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle,
+                      style: const TextStyle(
+                          fontSize: 12, color: _textMuted),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right,
+                  size: 18, color: _textMuted),
+            ],
+          ),
+        ),
+      );
 }
 

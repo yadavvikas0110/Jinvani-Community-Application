@@ -14,11 +14,33 @@ import '../features/family/screens/add_family_member_screen.dart';
 import '../features/family/screens/family_request_detail_screen.dart';
 import '../features/family/screens/family_requests_screen.dart';
 import '../features/family/screens/family_tree_hub_screen.dart';
+import '../features/calendar/screens/jain_calendar_screen.dart';
+import '../features/location/screens/jain_location_detail_screen.dart';
+import '../features/location/screens/jain_location_screen.dart';
+import '../features/directory/screens/directory_list_screen.dart';
+import '../features/directory/screens/directory_member_profile_screen.dart';
+import '../features/directory/screens/directory_screen.dart';
+import '../features/booking/screens/booking_checkout_screen.dart';
+import '../features/booking/screens/booking_confirmed_screen.dart';
+import '../features/booking/screens/booking_detail_screen.dart';
+import '../features/booking/screens/booking_payment_screen.dart';
 import '../features/booking/screens/booking_screen.dart';
+import '../features/booking/screens/my_bookings_screen.dart';
+import '../features/booking/screens/property_detail_screen.dart';
+import '../features/booking/screens/property_list_screen.dart';
 import '../features/feed/screens/feed_screen.dart';
 import '../features/feed/screens/post_detail_screen.dart';
 import '../features/home/home_screen.dart';
+import '../features/jobs/screens/applied_jobs_screen.dart';
+import '../features/jobs/screens/job_application_result_screen.dart';
+import '../features/jobs/screens/job_apply_screen.dart';
+import '../features/jobs/screens/job_cv_upload_screen.dart';
+import '../features/jobs/screens/job_detail_screen.dart';
+import '../features/jobs/screens/job_personal_info_screen.dart';
+import '../features/jobs/screens/job_professional_profile_screen.dart';
+import '../features/jobs/screens/job_role_selection_screen.dart';
 import '../features/jobs/screens/jobs_screen.dart';
+import '../features/jobs/screens/saved_jobs_screen.dart';
 import '../features/profile/screens/bio_screen.dart';
 import '../features/profile/screens/economic_data_screen.dart';
 import '../features/profile/screens/education_screen.dart';
@@ -74,6 +96,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/feed', builder: (_, __) => const FeedScreen()),
           GoRoute(path: '/jobs', builder: (_, __) => const JobsScreen()),
           GoRoute(path: '/booking', builder: (_, __) => const BookingScreen()),
+          GoRoute(path: '/directory', builder: (_, __) => const DirectoryScreen()),
           GoRoute(path: '/profile', builder: (_, __) => const ProfileMenuScreen()),
         ],
       ),
@@ -95,6 +118,77 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/feed/:id',
         builder: (_, s) =>
             PostDetailScreen(postId: s.pathParameters['id']!),
+      ),
+      GoRoute(path: '/jobs/setup/role', builder: (_, __) => const JobRoleSelectionScreen()),
+      GoRoute(path: '/jobs/setup/personal', builder: (_, __) => const JobPersonalInfoScreen()),
+      GoRoute(path: '/jobs/setup/professional', builder: (_, __) => const JobProfessionalProfileScreen()),
+      GoRoute(path: '/jobs/setup/cv', builder: (_, __) => const JobCvUploadScreen()),
+      GoRoute(path: '/jobs/applied', builder: (_, __) => const AppliedJobsScreen()),
+      GoRoute(path: '/jobs/saved', builder: (_, __) => const SavedJobsScreen()),
+      GoRoute(
+        path: '/jobs/:id',
+        builder: (_, s) => JobDetailScreen(jobId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/jobs/:id/apply',
+        builder: (_, s) => JobApplyScreen(jobId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/jobs/:id/applied/success',
+        builder: (_, __) => const JobApplicationSubmittedScreen(),
+      ),
+      GoRoute(
+        path: '/jobs/:id/applied/failed',
+        builder: (_, s) => JobApplicationFailedScreen(
+          company: s.uri.queryParameters['company'] ?? 'the company',
+        ),
+      ),
+      GoRoute(
+        path: '/booking/properties',
+        builder: (_, __) => const PropertyListScreen(),
+      ),
+      GoRoute(
+        path: '/booking/properties/:id',
+        builder: (_, s) =>
+            PropertyDetailScreen(propertyId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/booking/properties/:id/checkout',
+        builder: (_, s) =>
+            BookingCheckoutScreen(propertyId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/booking/properties/:id/payment',
+        builder: (_, s) =>
+            BookingPaymentScreen(propertyId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/booking/confirmed/:bookingId',
+        builder: (_, s) =>
+            BookingConfirmedScreen(bookingId: s.pathParameters['bookingId']!),
+      ),
+      GoRoute(path: '/booking/my-bookings', builder: (_, __) => const MyBookingsScreen()),
+      GoRoute(path: '/calendar', builder: (_, __) => const JainCalendarScreen()),
+      GoRoute(path: '/location', builder: (_, __) => const JainLocationScreen()),
+      GoRoute(
+        path: '/location/:id',
+        builder: (_, s) =>
+            JainLocationDetailScreen(locationId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/directory/:category',
+        builder: (_, s) =>
+            DirectoryListScreen(category: s.pathParameters['category']!),
+      ),
+      GoRoute(
+        path: '/directory/members/:id',
+        builder: (_, s) =>
+            DirectoryMemberProfileScreen(memberId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/booking/bookings/:id',
+        builder: (_, s) =>
+            BookingDetailScreen(bookingId: s.pathParameters['id']!),
       ),
     ],
   );
