@@ -135,7 +135,7 @@ export async function signupStart(input: { name: string; phone: string; email?: 
 export async function signupVerifyOtp(phone: string, code: string) {
   const draft = await SignupDraft.findOne({ phone });
   if (!draft) throw new HttpError(404, 'Signup draft not found or expired');
-  await consumeOtp(phone, code, 'signup');
+  await consumeOtp({ phone }, code, 'signup');
   draft.verifiedAt = new Date();
   await draft.save();
   return { signupToken: signSignupToken(phone) };

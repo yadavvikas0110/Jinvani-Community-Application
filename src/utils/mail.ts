@@ -12,8 +12,8 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendOtpEmail(to: string, code: string) {
-  if (env.NODE_ENV !== 'production' || !env.SMTP_HOST) {
-    console.log(`[mail] SKIP sending email to ${to} in dev mode. OTP Code: ${code}`);
+  if (!env.SMTP_HOST || !env.SMTP_USER || !env.SMTP_PASS) {
+    console.log(`[mail] SMTP not configured. OTP for ${to}: ${code}`);
     return;
   }
 
