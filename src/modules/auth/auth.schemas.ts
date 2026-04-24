@@ -48,3 +48,7 @@ export const resetPasswordSchema = z.object({
 export const updateRolesSchema = z.object({
   roles: z.array(z.string().min(2)).min(1),
 });
+
+export const verifyEmailStartSchema = z.object({ email });
+export const verifyEmailCompleteSchema = z.object({ email, code: z.string().length(6) });
+

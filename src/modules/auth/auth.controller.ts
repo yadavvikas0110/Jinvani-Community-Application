@@ -10,6 +10,8 @@ import {
   forgotVerifyOtpSchema,
   resetPasswordSchema,
   updateRolesSchema,
+  verifyEmailStartSchema,
+  verifyEmailCompleteSchema,
 } from './auth.schemas';
 import * as svc from './auth.service';
 import { User } from './user.model';
@@ -73,6 +75,19 @@ export const resetPasswordHandler = asyncHandler(async (req: Request, res: Respo
   const result = await svc.resetPassword(resetToken, newPassword);
   res.json(result);
 });
+
+export const verifyEmailStartHandler = asyncHandler(async (req: Request, res: Response) => {
+  const { email } = verifyEmailStartSchema.parse(req.body);
+  const result = await svc.startEmailVerification(req.user!.sub, email);
+  res.json(result);
+});
+
+export const verifyEmailCompleteHandler = asyncHandler(async (req: Request, res: Response) => {
+  const { email, code } = verifyEmailCompleteSchema.parse(req.body);
+  const user = await svc.completeEmailVerification(req.user!.sub, email, code);
+  res.json({ user });
+});
+
 
 export const updateRolesHandler = asyncHandler(async (req: Request, res: Response) => {
   const { roles } = updateRolesSchema.parse(req.body);

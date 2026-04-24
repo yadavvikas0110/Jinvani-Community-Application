@@ -1,9 +1,10 @@
 import { Schema, model, Document } from 'mongoose';
 
-export type OtpPurpose = 'signup' | 'login' | 'reset_password';
+export type OtpPurpose = 'signup' | 'login' | 'reset_password' | 'verify_email';
 
 export interface OtpDoc extends Document {
-  phone: string;
+  phone?: string;
+  email?: string;
   code: string;
   purpose: OtpPurpose;
   expiresAt: Date;
@@ -14,11 +15,12 @@ export interface OtpDoc extends Document {
 
 const OtpSchema = new Schema<OtpDoc>(
   {
-    phone: { type: String, required: true, index: true },
+    phone: { type: String, index: true },
+    email: { type: String, index: true },
     code: { type: String, required: true },
     purpose: {
       type: String,
-      enum: ['signup', 'login', 'reset_password'],
+      enum: ['signup', 'login', 'reset_password', 'verify_email'],
       required: true,
     },
     expiresAt: { type: Date, required: true },

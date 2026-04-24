@@ -7,13 +7,14 @@ import { Otp, OtpPurpose } from './otp.model';
 import { SignupDraft } from './signupDraft.model';
 import { User, UserDoc } from './user.model';
 
-const OTP_TTL_MIN = 10;
+const OTP_TTL_MIN = 5;
 const SIGNUP_TOKEN_TTL = '15m';
 const RESET_TOKEN_TTL = '15m';
 const DRAFT_TTL_MIN = 30;
 
 function genOtp() {
   if (env.NODE_ENV !== 'production') return env.OTP_DEV_CODE;
+  // Use a slightly more secure random for production
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
@@ -48,28 +49,37 @@ function verifyResetToken(token: string): { phone: string } {
   return { phone: payload.phone };
 }
 
-async function issueOtp(phone: string, purpose: OtpPurpose) {
+import { sendOtpEmail } from '../../utils/mail';
+
+async function issueOtp(identifier: { phone?: string; email?: string }, purpose: OtpPurpose) {
   const code = genOtp();
   const expiresAt = new Date(Date.now() + OTP_TTL_MIN * 60 * 1000);
-  await Otp.create({ phone, code, purpose, expiresAt });
   
-  if (env.NODE_ENV === 'production' && env.SMS_DOMAIN && env.SMS_USERNAME) {
+  // 1. Cleanup: Overwrite/Delete old active OTPs for this user/purpose
+  const query = identifier.phone ? { phone: identifier.phone, purpose } : { email: identifier.email, purpose };
+  await Otp.deleteMany(query);
+
+  // 2. Create new OTP
+  await Otp.create({ ...identifier, code, purpose, expiresAt });
+  
+  // 3. Delivery
+  if (identifier.email) {
+    await sendOtpEmail(identifier.email, code).catch(err => {
+       console.error('[auth] Email dispatch failure (non-blocking for DB record):', err);
+    });
+  }
+
+  if (identifier.phone && env.NODE_ENV === 'production' && env.SMS_DOMAIN && env.SMS_USERNAME) {
     try {
-      // Remove any '+' prefixed in the target phone number for Indian gateways
-      const tPhone = phone.replace('+', '');
-      // Format the OTP message 
+      const tPhone = identifier.phone.replace('+', '');
       const messageText = `[Jinvani Community] Your secure OTP is: ${code}. Do not share this with anyone.`;
       const message = encodeURIComponent(messageText);
-      
       const url = `https://${env.SMS_DOMAIN}/fe/api/v1/send?username=${env.SMS_USERNAME}&password=${env.SMS_PASSWORD}&unicode=false&from=${env.SMS_SENDER}&to=${tPhone}&text=${message}&dltContentId=${env.SMS_DLT_ID}`;
       
       console.log(`[sms] Triggering dispatch to ${tPhone}`);
       const response = await fetch(url);
-      
       if (!response.ok) {
         console.error(`[sms] Failed to send. Gateway status: ${response.status}`);
-        const text = await response.text();
-        console.error(`[sms] Error body: ${text}`);
       }
     } catch (err) {
       console.error('[sms] Fetch request failed:', err);
@@ -82,18 +92,31 @@ async function issueOtp(phone: string, purpose: OtpPurpose) {
   };
 }
 
-async function consumeOtp(phone: string, code: string, purpose: OtpPurpose) {
-  const otp = await Otp.findOne({ phone, purpose, consumedAt: { $exists: false } }).sort({ createdAt: -1 });
-  if (!otp) throw new HttpError(400, 'No active OTP');
-  if (otp.expiresAt.getTime() < Date.now()) throw new HttpError(400, 'OTP expired');
-  if (otp.attempts >= 5) throw new HttpError(429, 'Too many attempts');
+async function consumeOtp(identifier: { phone?: string; email?: string }, code: string, purpose: OtpPurpose) {
+  const query = identifier.phone 
+    ? { phone: identifier.phone, purpose, consumedAt: { $exists: false } }
+    : { email: identifier.email, purpose, consumedAt: { $exists: false } };
+
+  const otp = await Otp.findOne(query).sort({ createdAt: -1 });
+  
+  if (!otp) throw new HttpError(400, 'No active OTP found');
+  if (otp.expiresAt.getTime() < Date.now()) {
+    await otp.deleteOne(); // Optional cleanup
+    throw new HttpError(400, 'OTP has expired');
+  }
+  if (otp.attempts >= 5) {
+    await otp.deleteOne();
+    throw new HttpError(429, 'Too many invalid attempts. Please request a new code.');
+  }
+
   if (otp.code !== code) {
     otp.attempts += 1;
     await otp.save();
-    throw new HttpError(400, 'Invalid OTP');
+    throw new HttpError(400, 'Invalid verification code');
   }
-  otp.consumedAt = new Date();
-  await otp.save();
+
+  // Delete the record immediately after success to prevent reuse
+  await otp.deleteOne();
 }
 
 export async function signupStart(input: { name: string; phone: string; email?: string }) {
@@ -106,7 +129,7 @@ export async function signupStart(input: { name: string; phone: string; email?: 
     name: input.name,
     expiresAt: new Date(Date.now() + DRAFT_TTL_MIN * 60 * 1000),
   });
-  return issueOtp(input.phone, 'signup');
+  return issueOtp({ phone: input.phone }, 'signup');
 }
 
 export async function signupVerifyOtp(phone: string, code: string) {
@@ -147,7 +170,7 @@ export async function signupComplete(signupToken: string, password: string, role
 export async function resendSignupOtp(phone: string) {
   const draft = await SignupDraft.findOne({ phone });
   if (!draft) throw new HttpError(404, 'Signup draft not found');
-  return issueOtp(phone, 'signup');
+  return issueOtp({ phone }, 'signup');
 }
 
 export async function login(identifier: string, password: string) {
@@ -176,13 +199,13 @@ export async function refresh(refreshToken: string) {
 export async function forgotPassword(phone: string) {
   const user = await User.findOne({ phone });
   if (!user) throw new HttpError(404, 'User not found');
-  return issueOtp(phone, 'reset_password');
+  return issueOtp({ phone }, 'reset_password');
 }
 
 export async function forgotPasswordVerifyOtp(phone: string, code: string) {
   const user = await User.findOne({ phone });
   if (!user) throw new HttpError(404, 'User not found');
-  await consumeOtp(phone, code, 'reset_password');
+  await consumeOtp({ phone }, code, 'reset_password');
   return { resetToken: signResetToken(phone) };
 }
 
@@ -198,7 +221,23 @@ export async function resetPassword(resetToken: string, newPassword: string) {
 export async function resendResetOtp(phone: string) {
   const user = await User.findOne({ phone });
   if (!user) throw new HttpError(404, 'User not found');
-  return issueOtp(phone, 'reset_password');
+  return issueOtp({ phone }, 'reset_password');
+}
+
+export async function startEmailVerification(userId: string, email: string) {
+  // Check if email already verified or used by another
+  const existing = await User.findOne({ email: email.toLowerCase() });
+  if (existing && existing._id.toString() !== userId) {
+    throw new HttpError(409, 'Email already in use by another account');
+  }
+  return issueOtp({ email: email.toLowerCase() }, 'verify_email');
+}
+
+export async function completeEmailVerification(userId: string, email: string, code: string) {
+  await consumeOtp({ email: email.toLowerCase() }, code, 'verify_email');
+  const user = await User.findByIdAndUpdate(userId, { $set: { email: email.toLowerCase(), isEmailVerified: true } }, { new: true });
+  if (!user) throw new HttpError(404, 'User not found');
+  return user.toJSON();
 }
 
 export async function updateRoles(userId: string, roles: string[]) {

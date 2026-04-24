@@ -17,6 +17,11 @@ const schema = z.object({
   SMS_PASSWORD: z.string().optional(),
   SMS_SENDER: z.string().optional(),
   SMS_DLT_ID: z.string().optional(),
+  SMTP_HOST: z.string().optional(),
+  SMTP_PORT: z.coerce.number().optional(),
+  SMTP_USER: z.string().optional(),
+  SMTP_PASS: z.string().optional(),
+  SMTP_FROM: z.string().optional(),
 });
 
 export const env = schema.parse(process.env);

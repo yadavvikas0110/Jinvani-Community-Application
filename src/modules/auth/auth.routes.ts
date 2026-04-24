@@ -13,6 +13,8 @@ import {
   resetPasswordHandler,
   updateRolesHandler,
   meHandler,
+  verifyEmailStartHandler,
+  verifyEmailCompleteHandler,
 } from './auth.controller';
 
 export const authRouter = Router();
@@ -36,3 +38,5 @@ authRouter.post('/reset-password', resetPasswordHandler);
 // Authenticated
 authRouter.get('/me', requireAuth, meHandler);
 authRouter.put('/me/roles', requireAuth, updateRolesHandler);
+authRouter.post('/me/verify-email/start', requireAuth, verifyEmailStartHandler);
+authRouter.post('/me/verify-email/complete', requireAuth, verifyEmailCompleteHandler);
