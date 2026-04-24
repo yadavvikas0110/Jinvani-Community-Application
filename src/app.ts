@@ -1,4 +1,5 @@
 import path from 'path';
+import os from 'os';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -24,7 +25,7 @@ export function createApp() {
   app.use('/api/v1/users/me/family', familyRouter);
   app.use('/api/v1/feed', feedRouter);
 
-  app.use('/static/uploads', express.static(path.join(process.cwd(), 'uploads')));
+  app.use('/static/uploads', express.static(path.join(os.tmpdir(), 'uploads')));
 
   app.use(notFound);
   app.use(errorHandler);
