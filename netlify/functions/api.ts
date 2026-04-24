@@ -9,6 +9,8 @@ const app = createApp();
 const appHandler = serverless(app);
 
 export const handler = async (event: any, context: any) => {
+  context.callbackWaitsForEmptyEventLoop = false;
+  
   if (!dbConnected) {
     await connectDb();
     dbConnected = true;
