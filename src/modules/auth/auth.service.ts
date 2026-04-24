@@ -52,7 +52,30 @@ async function issueOtp(phone: string, purpose: OtpPurpose) {
   const code = genOtp();
   const expiresAt = new Date(Date.now() + OTP_TTL_MIN * 60 * 1000);
   await Otp.create({ phone, code, purpose, expiresAt });
-  // TODO integrate SMS provider; dev returns code
+  
+  if (env.NODE_ENV === 'production' && env.SMS_DOMAIN && env.SMS_USERNAME) {
+    try {
+      // Remove any '+' prefixed in the target phone number for Indian gateways
+      const tPhone = phone.replace('+', '');
+      // Format the OTP message 
+      const messageText = `[Jinvani Community] Your secure OTP is: ${code}. Do not share this with anyone.`;
+      const message = encodeURIComponent(messageText);
+      
+      const url = `https://${env.SMS_DOMAIN}/fe/api/v1/send?username=${env.SMS_USERNAME}&password=${env.SMS_PASSWORD}&unicode=false&from=${env.SMS_SENDER}&to=${tPhone}&text=${message}&dltContentId=${env.SMS_DLT_ID}`;
+      
+      console.log(`[sms] Triggering dispatch to ${tPhone}`);
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        console.error(`[sms] Failed to send. Gateway status: ${response.status}`);
+        const text = await response.text();
+        console.error(`[sms] Error body: ${text}`);
+      }
+    } catch (err) {
+      console.error('[sms] Fetch request failed:', err);
+    }
+  }
+
   return {
     expiresInSec: OTP_TTL_MIN * 60,
     devCode: env.NODE_ENV !== 'production' ? code : undefined,
