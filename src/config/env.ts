@@ -22,6 +22,7 @@ const schema = z.object({
   SMTP_USER: z.string().optional(),
   SMTP_PASS: z.string().optional(),
   SMTP_FROM: z.string().optional(),
+  GOOGLE_CLIENT_ID: z.string().optional(),
 });
 
 export const env = schema.parse(process.env);

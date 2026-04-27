@@ -1,4 +1,5 @@
 import jwt, { SignOptions } from 'jsonwebtoken';
+import { OAuth2Client } from 'google-auth-library';
 import { env } from '../../config/env';
 import { HttpError } from '../../middleware/error';
 import { linkExternalInvitations } from '../family/family.service';
@@ -244,4 +245,56 @@ export async function updateRoles(userId: string, roles: string[]) {
   const user = await User.findByIdAndUpdate(userId, { $set: { roles } }, { new: true });
   if (!user) throw new HttpError(404, 'User not found');
   return user.toJSON();
+}
+
+export async function loginWithGoogle(idToken: string) {
+  if (!env.GOOGLE_CLIENT_ID) {
+    throw new HttpError(500, 'Google login is not configured on the server');
+  }
+
+  const client = new OAuth2Client(env.GOOGLE_CLIENT_ID);
+  let payload;
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken,
+      audience: env.GOOGLE_CLIENT_ID,
+    });
+    payload = ticket.getPayload();
+  } catch (err) {
+    throw new HttpError(401, 'Invalid Google ID token');
+  }
+
+  if (!payload || !payload.email) {
+    throw new HttpError(401, 'Google token missing email');
+  }
+
+  const { email, name, picture, sub: googleId } = payload;
+
+  // Find existing user by email or create a new one
+  let user = await User.findOne({ email: email.toLowerCase() });
+
+  if (!user) {
+    // Auto-register new Google user
+    user = new User({
+      name: name || email.split('@')[0],
+      email: email.toLowerCase(),
+      phone: `google_${googleId}`, // placeholder — no phone from Google
+      role: 'member',
+      isPhoneVerified: false,
+      isEmailVerified: true, // Google already verified the email
+      avatarUrl: picture,
+      roles: [],
+    });
+    // Set a random password (user won't use it — they login via Google)
+    await user.setPassword(Math.random().toString(36).slice(2) + Date.now());
+    await user.save();
+    await linkExternalInvitations({
+      id: user._id.toString(),
+      phone: user.phone,
+      email: user.email,
+    });
+  }
+
+  const tokens = buildTokens(user);
+  return { user: user.toJSON(), ...tokens };
 }

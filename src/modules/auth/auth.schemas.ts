@@ -52,3 +52,4 @@ export const updateRolesSchema = z.object({
 export const verifyEmailStartSchema = z.object({ email });
 export const verifyEmailCompleteSchema = z.object({ email, code: z.string().length(6) });
 
+export const googleLoginSchema = z.object({ idToken: z.string().min(10) });

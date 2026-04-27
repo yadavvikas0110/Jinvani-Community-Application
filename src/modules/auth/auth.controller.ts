@@ -12,6 +12,7 @@ import {
   updateRolesSchema,
   verifyEmailStartSchema,
   verifyEmailCompleteSchema,
+  googleLoginSchema,
 } from './auth.schemas';
 import * as svc from './auth.service';
 import { User } from './user.model';
@@ -98,4 +99,10 @@ export const updateRolesHandler = asyncHandler(async (req: Request, res: Respons
 export const meHandler = asyncHandler(async (req: Request, res: Response) => {
   const user = await User.findById(req.user!.sub);
   res.json({ user: user?.toJSON() });
+});
+
+export const googleLoginHandler = asyncHandler(async (req: Request, res: Response) => {
+  const { idToken } = googleLoginSchema.parse(req.body);
+  const result = await svc.loginWithGoogle(idToken);
+  res.json(result);
 });

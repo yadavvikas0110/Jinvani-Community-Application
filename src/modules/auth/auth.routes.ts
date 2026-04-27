@@ -15,6 +15,7 @@ import {
   meHandler,
   verifyEmailStartHandler,
   verifyEmailCompleteHandler,
+  googleLoginHandler,
 } from './auth.controller';
 
 export const authRouter = Router();
@@ -27,6 +28,7 @@ authRouter.post('/signup/resend-otp', resendOtpHandler);
 
 // Session
 authRouter.post('/login', loginHandler);
+authRouter.post('/google', googleLoginHandler);
 authRouter.post('/refresh', refreshHandler);
 
 // Password reset (3-step)
