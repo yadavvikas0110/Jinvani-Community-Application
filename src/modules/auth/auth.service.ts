@@ -69,7 +69,7 @@ async function issueOtp(identifier: { phone?: string; email?: string }, purpose:
     });
   }
 
-  if (identifier.phone && env.NODE_ENV === 'production' && env.SMS_DOMAIN && env.SMS_USERNAME) {
+  if (identifier.phone && env.SMS_DOMAIN && env.SMS_USERNAME) {
     try {
       const tPhone = identifier.phone.replace('+', '');
       const messageText = `[Jinvani Community] Your secure OTP is: ${code}. Do not share this with anyone.`;
