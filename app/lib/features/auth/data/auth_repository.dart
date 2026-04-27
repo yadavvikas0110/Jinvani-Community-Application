@@ -91,6 +91,25 @@ class AuthRepository {
     final r = await _dio.put('/auth/me/roles', data: {'roles': roles});
     return AuthUser.fromJson(r.data['user'] as Map<String, dynamic>);
   }
+
+  Future<({int expiresInSec, String? devCode})> verifyEmailStart(String email) async {
+    final r = await _dio.post('/auth/me/verify-email/start', data: {'email': email});
+    return (
+      expiresInSec: (r.data['expiresInSec'] as num).toInt(),
+      devCode: r.data['devCode'] as String?,
+    );
+  }
+
+  Future<AuthUser> verifyEmailComplete(String email, String code) async {
+    final r = await _dio.post('/auth/me/verify-email/complete', data: {'email': email, 'code': code});
+    return AuthUser.fromJson(r.data['user'] as Map<String, dynamic>);
+  }
+
+  Future<AuthUser> loginWithGoogle(String idToken) async {
+    final r = await _dio.post('/auth/google', data: {'idToken': idToken});
+    await _storage.saveTokens(r.data['accessToken'] as String, r.data['refreshToken'] as String);
+    return AuthUser.fromJson(r.data['user'] as Map<String, dynamic>);
+  }
 }
 
 final authRepositoryProvider = Provider<AuthRepository>(

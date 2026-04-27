@@ -42,6 +42,11 @@ class AuthController extends Notifier<AuthState> {
     await _repo.logout();
     state = state.copyWith(clearUser: true, initializing: false);
   }
+
+  Future<void> loginWithGoogle(String idToken) async {
+    final user = await _repo.loginWithGoogle(idToken);
+    state = state.copyWith(initializing: false, user: user);
+  }
 }
 
 final authControllerProvider =

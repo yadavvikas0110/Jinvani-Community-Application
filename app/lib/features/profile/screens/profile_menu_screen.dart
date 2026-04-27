@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../auth/state/auth_controller.dart';
 import '../state/profile_controller.dart';
 import '../widgets/profile_app_bar.dart';
 
@@ -82,6 +83,48 @@ class ProfileMenuScreen extends ConsumerWidget {
               title: 'Family Tree',
               filled: false,
               onTap: () => context.push('/family'),
+            ),
+            _MenuItem(
+              index: 8,
+              icon: Icons.verified_user_outlined,
+              title: 'Verify Email',
+              filled: ref.watch(authControllerProvider).user?.isEmailVerified ?? false,
+              onTap: () => context.push('/profile/verify-email'),
+            ),
+            const SizedBox(height: 24),
+            TextButton.icon(
+              onPressed: () async {
+                final confirm = await showDialog<bool>(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Log Out'),
+                    content: const Text('Are you sure you want to log out?'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(true),
+                        style: TextButton.styleFrom(foregroundColor: AppColors.danger),
+                        child: const Text('Log Out'),
+                      ),
+                    ],
+                  ),
+                );
+
+                if (confirm == true) {
+                  await ref.read(authControllerProvider.notifier).logout();
+                  if (context.mounted) context.go('/auth');
+                }
+              },
+              icon: const Icon(Icons.logout, color: AppColors.danger),
+              label: const Text('Log Out', style: TextStyle(color: AppColors.danger, fontSize: 16)),
+              style: TextButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                backgroundColor: AppColors.danger.withValues(alpha: 0.1),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
             ),
           ],
         ),

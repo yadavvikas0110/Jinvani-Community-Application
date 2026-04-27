@@ -47,6 +47,7 @@ import '../features/profile/screens/education_screen.dart';
 import '../features/profile/screens/goals_screen.dart';
 import '../features/profile/screens/personal_details_screen.dart';
 import '../features/profile/screens/profile_menu_screen.dart';
+import '../features/profile/screens/verify_email_screen.dart';
 import '../features/profile/screens/work_details_screen.dart';
 import '../features/shell/nav_shell.dart';
 import '../features/splash/splash_screen.dart';
@@ -106,6 +107,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/profile/economic', builder: (_, __) => const EconomicDataScreen()),
       GoRoute(path: '/profile/bio', builder: (_, __) => const BioScreen()),
       GoRoute(path: '/profile/goals', builder: (_, __) => const GoalsScreen()),
+      GoRoute(path: '/profile/verify-email', builder: (_, __) => const VerifyEmailScreen()),
       GoRoute(path: '/family', builder: (_, __) => const FamilyTreeHubScreen()),
       GoRoute(path: '/family/add', builder: (_, __) => const AddFamilyMemberScreen()),
       GoRoute(path: '/family/requests', builder: (_, __) => const FamilyRequestsScreen()),

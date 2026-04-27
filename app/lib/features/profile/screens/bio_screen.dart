@@ -71,7 +71,7 @@ class _BioScreenState extends ConsumerState<BioScreen> {
   String _absoluteUrl(String path) {
     if (path.startsWith('http')) return path;
     const base = String.fromEnvironment('API_BASE_URL',
-        defaultValue: 'http://10.0.2.2:4000/api/v1');
+        defaultValue: 'https://teal-tapioca-5eaaaa.netlify.app/api/v1');
     final host = base.replaceAll('/api/v1', '');
     return '$host$path';
   }

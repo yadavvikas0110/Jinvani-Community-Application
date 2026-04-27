@@ -5,6 +5,7 @@ class AuthUser {
   final String phone;
   final String role;
   final bool isPhoneVerified;
+  final bool isEmailVerified;
   final List<String> roles;
   final int profileCompletion;
 
@@ -14,6 +15,7 @@ class AuthUser {
     required this.phone,
     required this.role,
     required this.isPhoneVerified,
+    required this.isEmailVerified,
     required this.roles,
     required this.profileCompletion,
     this.email,
@@ -26,6 +28,7 @@ class AuthUser {
         phone: j['phone'] as String,
         role: j['role'] as String? ?? 'member',
         isPhoneVerified: j['isPhoneVerified'] as bool? ?? false,
+        isEmailVerified: j['isEmailVerified'] as bool? ?? false,
         roles: ((j['roles'] ?? const []) as List).map((e) => e.toString()).toList(),
         profileCompletion: (j['profileCompletion'] as num?)?.toInt() ?? 20,
       );

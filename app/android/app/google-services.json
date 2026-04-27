@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "915002549572",
+    "project_id": "jinvani-community-app",
+    "storage_bucket": "jinvani-community-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915002549572:android:2fe25f66371c12fa7ce311",
+        "android_client_info": {
+          "package_name": "app.jinvani.community"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915002549572-s2se89tbvtkniarvnuid4hppcpnduple.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.jinvani.community",
+            "certificate_hash": "7a0ae3a330f0e379adaac04dd09233366426e23b"
+          }
+        },
+        {
+          "client_id": "915002549572-cobndrf6gih0uen6eu1r5a00gtgmru76.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf3sv6KrEPRoof6YgzaPOVtVs9svLbJpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915002549572-cobndrf6gih0uen6eu1r5a00gtgmru76.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "915002549572-ed4skbe9ajan7kpeiqf0ub5frbnrfhjv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.jinvani.community"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

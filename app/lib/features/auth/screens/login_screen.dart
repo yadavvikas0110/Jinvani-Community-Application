@@ -2,9 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../shared/widgets/gradient_button.dart';
 import '../data/auth_repository.dart';
+import '../data/google_auth_service.dart';
 import '../state/auth_controller.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -38,7 +40,9 @@ class _SocialButton extends StatelessWidget {
           border: Border.all(color: const Color(0xFFE5E7EB)),
         ),
         alignment: Alignment.center,
-        child: Icon(icon, size: 28, color: iconColor),
+        child: asset != null 
+            ? SvgPicture.asset(asset!, width: 24, height: 24)
+            : Icon(icon, size: 28, color: iconColor),
       ),
     );
   }
@@ -57,6 +61,42 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     _id.dispose();
     _pw.dispose();
     super.dispose();
+  }
+
+  Future<void> _googleLogin() async {
+    if (_loading) return;
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+
+    try {
+      final googleService = ref.read(googleAuthServiceProvider);
+      final idToken = await googleService.signIn();
+      
+      if (idToken == null) {
+        // User cancelled login
+        setState(() => _loading = false);
+        return;
+      }
+
+      await ref.read(authControllerProvider.notifier).loginWithGoogle(idToken);
+      if (mounted) context.go('/home');
+    } on DioException catch (e) {
+      if (mounted) {
+        setState(() {
+          _error = e.response?.data['error']?['message'] ?? 'Google login failed';
+          _loading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _error = 'An unexpected error occurred with Google login';
+          _loading = false;
+        });
+      }
+    }
   }
 
   void _socialStub(String provider) {
@@ -129,9 +169,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
-                          'assets/splash/splash_bg.png',
+                          'assets/splash/logo.png',
                           fit: BoxFit.cover,
-                          alignment: const Alignment(0, -0.15),
                         ),
                       ),
                     ),
@@ -218,10 +257,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         _SocialButton(
-                          asset: null,
+                          asset: 'assets/icons/common/google_g.svg',
                           icon: Icons.g_mobiledata,
                           iconColor: const Color(0xFFDB4437),
-                          onTap: () => _socialStub('Google'),
+                          onTap: _googleLogin,
                         ),
                         const SizedBox(width: 16),
                         _SocialButton(
