@@ -1,4 +1,4 @@
-package `in`.applore.jinvani.jinvani_app
+package app.jinvani.community
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -81,7 +81,7 @@ class PropertyDetailScreen extends ConsumerWidget {
                   background: Image.network(
                     property.primaryImage,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       color: const Color(0xFFEDE9FF),
                       child: const Icon(Icons.apartment_outlined,
                           size: 60, color: Color(0xFF7C3AED)),

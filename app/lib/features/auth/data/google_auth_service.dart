@@ -1,37 +1,29 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleAuthService {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
 
-  /// Returns a Firebase ID token after Google sign-in
+  /// Returns a Google ID token to send to our backend for verification
   Future<String?> signIn() async {
     try {
-      final googleUser = await _googleSignIn.signIn();
-      if (googleUser == null) return null; // user cancelled
+      final googleUser = await _googleSignIn.authenticate();
 
-      final googleAuth = await googleUser.authentication;
+      // `authentication` is a property in v7, not a Future
+      final googleAuth = googleUser.authentication;
 
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      final userCredential =
-          await FirebaseAuth.instance.signInWithCredential(credential);
-
-      // Get Firebase ID token to send to our backend
-      final idToken = await userCredential.user?.getIdToken();
-      return idToken;
-    } catch (e) {
+      // Return the Google ID token directly — our backend verifies it
+      // using google-auth-library, NOT Firebase Admin SDK
+      return googleAuth.idToken;
+    } catch (e, st) {
+      print('[GoogleAuthService] Error: $e');
+      print(st);
       rethrow;
     }
   }
 
   Future<void> signOut() async {
     await _googleSignIn.signOut();
-    await FirebaseAuth.instance.signOut();
   }
 }
 

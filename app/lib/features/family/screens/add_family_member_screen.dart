@@ -419,16 +419,16 @@ class _NotRegisteredDialogState extends State<_NotRegisteredDialog> {
                                           : '+91${phone.replaceAll(RegExp(r'\D'), '')}'),
                                   email.isEmpty ? null : email,
                                 );
-                                if (mounted) Navigator.pop(context, ok);
+                                if (context.mounted) Navigator.pop(context, ok);
                               } catch (_) {
-                                if (mounted) {
+                                if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
                                         content: Text('Failed to send invite')),
                                   );
                                 }
                               } finally {
-                                if (mounted) setState(() => _sending = false);
+                                if (context.mounted) setState(() => _sending = false);
                               }
                             },
                     ),

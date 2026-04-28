@@ -38,6 +38,7 @@ class AuthRepository {
     final r = await _dio.post('/auth/signup/complete', data: {
       'signupToken': signupToken,
       'password': password,
+      // ignore: use_null_aware_elements
       if (roles != null) 'roles': roles,
     });
     await _storage.saveTokens(r.data['accessToken'] as String, r.data['refreshToken'] as String);

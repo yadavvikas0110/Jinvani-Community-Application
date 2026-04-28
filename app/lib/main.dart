@@ -4,9 +4,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'app/router.dart';
 import 'core/theme/app_theme.dart';
 
+import 'package:google_sign_in/google_sign_in.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await GoogleSignIn.instance.initialize();
   runApp(const ProviderScope(child: JinvaniApp()));
 }
 

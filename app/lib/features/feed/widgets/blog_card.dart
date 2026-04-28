@@ -41,7 +41,7 @@ class BlogCard extends StatelessWidget {
                         aspectRatio: 16 / 9,
                         child: Image.network(post.imageUrl!,
                             fit: BoxFit.cover,
-                            errorBuilder: (_, __, ___) => Container(
+                            errorBuilder: (_, _, _) => Container(
                                 color: const Color(0xFFEEF0F4),
                                 child: const Icon(Icons.image_outlined,
                                     color: AppColors.textMuted, size: 48))),

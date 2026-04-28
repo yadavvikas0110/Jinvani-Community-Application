@@ -144,7 +144,7 @@ class _PropertyListCard extends StatelessWidget {
               height: 180,
               width: double.infinity,
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
+              errorBuilder: (_, _, _) => Container(
                 height: 180,
                 color: const Color(0xFFEDE9FF),
                 child: const Icon(Icons.apartment_outlined,

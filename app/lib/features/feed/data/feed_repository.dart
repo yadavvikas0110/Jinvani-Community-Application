@@ -13,6 +13,7 @@ class FeedRepository {
     final r = await _dio.get(_base, queryParameters: {
       'type': type,
       'limit': limit,
+      // ignore: use_null_aware_elements
       if (cursor != null) 'cursor': cursor,
     });
     return FeedPage.fromJson(r.data as Map<String, dynamic>);

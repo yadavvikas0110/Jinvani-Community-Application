@@ -171,7 +171,7 @@ class _BookingList extends StatelessWidget {
     return ListView.separated(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
       itemCount: bookings.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 14),
+      separatorBuilder: (_, _) => const SizedBox(height: 14),
       itemBuilder: (_, i) =>
           _BookingCard(booking: bookings[i], isUpcoming: isUpcoming),
     );
@@ -282,7 +282,7 @@ class _BookingCard extends StatelessWidget {
                                 width: 70,
                                 height: 70,
                                 fit: BoxFit.cover,
-                                errorBuilder: (_, __, ___) =>
+                                errorBuilder: (_, _, _) =>
                                     _imageFallback(),
                               )
                             : _imageFallback(),

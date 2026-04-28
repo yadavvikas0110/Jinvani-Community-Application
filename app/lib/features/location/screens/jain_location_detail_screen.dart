@@ -63,7 +63,7 @@ class JainLocationDetailScreen extends ConsumerWidget {
                   background: Image.network(
                     location.primaryImage,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       color: const Color(0xFFEDE9FF),
                       child: const Icon(Icons.place,
                           size: 80, color: Color(0xFF7C3AED)),
@@ -188,7 +188,7 @@ class JainLocationDetailScreen extends ConsumerWidget {
                             child: Image.network(
                               location.imageUrls[i],
                               fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) => Container(
+                              errorBuilder: (_, _, _) => Container(
                                 color: const Color(0xFFEDE9FF),
                                 child: const Icon(Icons.image_outlined,
                                     color: Color(0xFF7C3AED), size: 24),

@@ -42,15 +42,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _maybeNavigate(ref.read(authControllerProvider));
     });
-    return const Scaffold(
-      body: DecoratedBox(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/splash/logo.png'),
+    return Scaffold(
+      body: Center(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.45,
+          child: Image.asset(
+            'assets/splash/logo.png',
             fit: BoxFit.contain,
           ),
         ),
-        child: SizedBox.expand(),
       ),
     );
   }

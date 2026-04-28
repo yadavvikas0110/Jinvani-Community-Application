@@ -108,7 +108,7 @@ class BookingConfirmedScreen extends ConsumerWidget {
                                         width: 64,
                                         height: 64,
                                         fit: BoxFit.cover,
-                                        errorBuilder: (_, __, ___) => Container(
+                                        errorBuilder: (_, _, _) => Container(
                                           width: 64,
                                           height: 64,
                                           color: const Color(0xFFEDE9FF),

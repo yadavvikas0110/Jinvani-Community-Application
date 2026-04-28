@@ -201,7 +201,7 @@ class _LocationTab extends ConsumerWidget {
         return ListView.separated(
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
           itemCount: locations.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 10),
+          separatorBuilder: (_, _) => const SizedBox(height: 10),
           itemBuilder: (_, i) => _LocationCard(
             location: locations[i],
             onTap: () => onTap(locations[i].id),
@@ -248,7 +248,7 @@ class _LocationCard extends StatelessWidget {
                   width: 90,
                   height: 90,
                   fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => Container(
+                  errorBuilder: (_, _, _) => Container(
                     width: 90,
                     height: 90,
                     color: const Color(0xFFEDE9FF),

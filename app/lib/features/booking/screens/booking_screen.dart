@@ -21,7 +21,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
   String _fmtDate(DateTime d) {
     final dd = d.day.toString().padLeft(2, '0');
     final mm = d.month.toString().padLeft(2, '0');
-    return '$dd-${mm}-${d.year}';
+    return '$dd-$mm-${d.year}';
   }
 
   Future<void> _pickDate(bool isCheckIn) async {
@@ -116,7 +116,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                   child: Image.network(
                     'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=800',
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       color: const Color(0xFF2D1B69),
                     ),
                   ),

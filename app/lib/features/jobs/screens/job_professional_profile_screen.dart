@@ -90,7 +90,7 @@ class _JobProfessionalProfileScreenState
             _label('Work experience'),
             const SizedBox(height: 4),
             DropdownButtonFormField<String>(
-              value: _experience,
+              initialValue: _experience,
               decoration: _inputDecoration('Select experience'),
               items: _experienceOptions
                   .map((e) => DropdownMenuItem(value: e, child: Text(e)))

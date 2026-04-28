@@ -162,7 +162,7 @@ class BookingDetailScreen extends ConsumerWidget {
                               width: 80,
                               height: 80,
                               fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) =>
+                              errorBuilder: (_, _, _) =>
                                   _imgFallback(),
                             )
                           : _imgFallback(),

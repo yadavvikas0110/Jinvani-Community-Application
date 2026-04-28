@@ -223,7 +223,7 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
                                 aspectRatio: 16 / 9,
                                 child: Image.network(_imageUrl!,
                                     fit: BoxFit.cover,
-                                    errorBuilder: (_, __, ___) => Container(
+                                    errorBuilder: (_, _, _) => Container(
                                         color: const Color(0xFFEEF0F4))),
                               ),
                             ),

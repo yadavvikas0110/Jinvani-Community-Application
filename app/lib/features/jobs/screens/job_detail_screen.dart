@@ -47,7 +47,7 @@ class _JobDetailScreenState extends ConsumerState<JobDetailScreen>
       data: (job) => Scaffold(
         backgroundColor: Colors.white,
         body: NestedScrollView(
-          headerSliverBuilder: (_, __) => [
+          headerSliverBuilder: (_, _) => [
             SliverAppBar(
               backgroundColor: Colors.white,
               surfaceTintColor: Colors.white,

@@ -195,7 +195,9 @@ class CheckoutController extends Notifier<CheckoutState> {
   Future<Booking?> confirmBooking(String propertyId) async {
     if (state.checkIn == null ||
         state.checkOut == null ||
-        state.selectedRoom == null) return null;
+        state.selectedRoom == null) {
+      return null;
+    }
     state = state.copyWith(submitting: true, error: null);
     try {
       final booking =

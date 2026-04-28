@@ -172,9 +172,7 @@ class _InputField extends StatelessWidget {
             hintStyle: const TextStyle(color: AppColors.textMuted, fontSize: 14),
             prefixIcon: prefixIcon != null
                 ? Icon(prefixIcon, size: 16, color: AppColors.textMuted)
-                : prefixWidget != null
-                    ? prefixWidget
-                    : null,
+                : prefixWidget,
             prefixIconConstraints: prefixWidget != null
                 ? const BoxConstraints(minWidth: 0, minHeight: 0)
                 : null,

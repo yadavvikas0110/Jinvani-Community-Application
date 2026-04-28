@@ -69,7 +69,7 @@ class _JobsScreenState extends ConsumerState<JobsScreen> {
     return setupDone.when(
       loading: () =>
           const Scaffold(body: Center(child: CircularProgressIndicator())),
-      error: (_, __) => const Scaffold(body: Center(child: Text('Error'))),
+      error: (_, _) => const Scaffold(body: Center(child: Text('Error'))),
       data: (done) {
         if (!done) {
           return _SetupPromptScreen(
@@ -269,7 +269,7 @@ class _JobsListingScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF7F7F6),
       body: NestedScrollView(
-        headerSliverBuilder: (_, __) => [
+        headerSliverBuilder: (_, _) => [
           SliverAppBar(
             backgroundColor: Colors.white,
             surfaceTintColor: Colors.white,

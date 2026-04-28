@@ -158,7 +158,7 @@ class _DirectoryListScreenState extends ConsumerState<DirectoryListScreen> {
                 child: ListView.separated(
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
                   itemCount: members.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  separatorBuilder: (_, _) => const SizedBox(height: 10),
                   itemBuilder: (_, i) => _MemberListCard(
                     member: members[i],
                     onTap: () =>

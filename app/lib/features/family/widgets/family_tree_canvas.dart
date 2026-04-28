@@ -138,7 +138,7 @@ class _Avatar extends StatelessWidget {
                 ? Image.network(
                     url!,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => _initialsBg(initials, size),
+                    errorBuilder: (_, _, _) => _initialsBg(initials, size),
                   )
                 : _initialsBg(initials, size),
           ),

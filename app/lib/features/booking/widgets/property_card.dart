@@ -42,7 +42,7 @@ class PropertyCard extends StatelessWidget {
                     height: 180,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       height: 180,
                       color: const Color(0xFFF0F0F0),
                       child: const Icon(Icons.image_outlined,

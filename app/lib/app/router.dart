@@ -54,7 +54,7 @@ import '../features/splash/splash_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final refresh = _RouterRefresh();
-  ref.listen(authControllerProvider, (_, __) => refresh.bump());
+  ref.listen(authControllerProvider, (_, _) => refresh.bump());
   ref.onDispose(refresh.dispose);
 
   return GoRouter(
@@ -81,36 +81,36 @@ final routerProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
-      GoRoute(path: '/', builder: (_, __) => const SplashScreen()),
-      GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
-      GoRoute(path: '/forgot-password', builder: (_, __) => const ForgotPasswordScreen()),
-      GoRoute(path: '/forgot-password/otp', builder: (_, __) => const ForgotPasswordOtpScreen()),
-      GoRoute(path: '/forgot-password/reset', builder: (_, __) => const ForgotPasswordResetScreen()),
-      GoRoute(path: '/signup/details', builder: (_, __) => const SignupDetailsScreen()),
-      GoRoute(path: '/signup/otp', builder: (_, __) => const SignupOtpScreen()),
-      GoRoute(path: '/signup/password', builder: (_, __) => const SignupPasswordScreen()),
-      GoRoute(path: '/signup/roles', builder: (_, __) => const SignupRolesScreen()),
+      GoRoute(path: '/', builder: (_, _) => const SplashScreen()),
+      GoRoute(path: '/login', builder: (_, _) => const LoginScreen()),
+      GoRoute(path: '/forgot-password', builder: (_, _) => const ForgotPasswordScreen()),
+      GoRoute(path: '/forgot-password/otp', builder: (_, _) => const ForgotPasswordOtpScreen()),
+      GoRoute(path: '/forgot-password/reset', builder: (_, _) => const ForgotPasswordResetScreen()),
+      GoRoute(path: '/signup/details', builder: (_, _) => const SignupDetailsScreen()),
+      GoRoute(path: '/signup/otp', builder: (_, _) => const SignupOtpScreen()),
+      GoRoute(path: '/signup/password', builder: (_, _) => const SignupPasswordScreen()),
+      GoRoute(path: '/signup/roles', builder: (_, _) => const SignupRolesScreen()),
       ShellRoute(
-        builder: (_, __, child) => NavShell(child: child),
+        builder: (_, _, child) => NavShell(child: child),
         routes: [
-          GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
-          GoRoute(path: '/feed', builder: (_, __) => const FeedScreen()),
-          GoRoute(path: '/jobs', builder: (_, __) => const JobsScreen()),
-          GoRoute(path: '/booking', builder: (_, __) => const BookingScreen()),
-          GoRoute(path: '/directory', builder: (_, __) => const DirectoryScreen()),
-          GoRoute(path: '/profile', builder: (_, __) => const ProfileMenuScreen()),
+          GoRoute(path: '/home', builder: (_, _) => const HomeScreen()),
+          GoRoute(path: '/feed', builder: (_, _) => const FeedScreen()),
+          GoRoute(path: '/jobs', builder: (_, _) => const JobsScreen()),
+          GoRoute(path: '/booking', builder: (_, _) => const BookingScreen()),
+          GoRoute(path: '/directory', builder: (_, _) => const DirectoryScreen()),
+          GoRoute(path: '/profile', builder: (_, _) => const ProfileMenuScreen()),
         ],
       ),
-      GoRoute(path: '/profile/personal', builder: (_, __) => const PersonalDetailsScreen()),
-      GoRoute(path: '/profile/education', builder: (_, __) => const EducationScreen()),
-      GoRoute(path: '/profile/work', builder: (_, __) => const WorkDetailsScreen()),
-      GoRoute(path: '/profile/economic', builder: (_, __) => const EconomicDataScreen()),
-      GoRoute(path: '/profile/bio', builder: (_, __) => const BioScreen()),
-      GoRoute(path: '/profile/goals', builder: (_, __) => const GoalsScreen()),
-      GoRoute(path: '/profile/verify-email', builder: (_, __) => const VerifyEmailScreen()),
-      GoRoute(path: '/family', builder: (_, __) => const FamilyTreeHubScreen()),
-      GoRoute(path: '/family/add', builder: (_, __) => const AddFamilyMemberScreen()),
-      GoRoute(path: '/family/requests', builder: (_, __) => const FamilyRequestsScreen()),
+      GoRoute(path: '/profile/personal', builder: (_, _) => const PersonalDetailsScreen()),
+      GoRoute(path: '/profile/education', builder: (_, _) => const EducationScreen()),
+      GoRoute(path: '/profile/work', builder: (_, _) => const WorkDetailsScreen()),
+      GoRoute(path: '/profile/economic', builder: (_, _) => const EconomicDataScreen()),
+      GoRoute(path: '/profile/bio', builder: (_, _) => const BioScreen()),
+      GoRoute(path: '/profile/goals', builder: (_, _) => const GoalsScreen()),
+      GoRoute(path: '/profile/verify-email', builder: (_, _) => const VerifyEmailScreen()),
+      GoRoute(path: '/family', builder: (_, _) => const FamilyTreeHubScreen()),
+      GoRoute(path: '/family/add', builder: (_, _) => const AddFamilyMemberScreen()),
+      GoRoute(path: '/family/requests', builder: (_, _) => const FamilyRequestsScreen()),
       GoRoute(
         path: '/family/requests/:id',
         builder: (_, s) =>
@@ -121,12 +121,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, s) =>
             PostDetailScreen(postId: s.pathParameters['id']!),
       ),
-      GoRoute(path: '/jobs/setup/role', builder: (_, __) => const JobRoleSelectionScreen()),
-      GoRoute(path: '/jobs/setup/personal', builder: (_, __) => const JobPersonalInfoScreen()),
-      GoRoute(path: '/jobs/setup/professional', builder: (_, __) => const JobProfessionalProfileScreen()),
-      GoRoute(path: '/jobs/setup/cv', builder: (_, __) => const JobCvUploadScreen()),
-      GoRoute(path: '/jobs/applied', builder: (_, __) => const AppliedJobsScreen()),
-      GoRoute(path: '/jobs/saved', builder: (_, __) => const SavedJobsScreen()),
+      GoRoute(path: '/jobs/setup/role', builder: (_, _) => const JobRoleSelectionScreen()),
+      GoRoute(path: '/jobs/setup/personal', builder: (_, _) => const JobPersonalInfoScreen()),
+      GoRoute(path: '/jobs/setup/professional', builder: (_, _) => const JobProfessionalProfileScreen()),
+      GoRoute(path: '/jobs/setup/cv', builder: (_, _) => const JobCvUploadScreen()),
+      GoRoute(path: '/jobs/applied', builder: (_, _) => const AppliedJobsScreen()),
+      GoRoute(path: '/jobs/saved', builder: (_, _) => const SavedJobsScreen()),
       GoRoute(
         path: '/jobs/:id',
         builder: (_, s) => JobDetailScreen(jobId: s.pathParameters['id']!),
@@ -137,7 +137,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/jobs/:id/applied/success',
-        builder: (_, __) => const JobApplicationSubmittedScreen(),
+        builder: (_, _) => const JobApplicationSubmittedScreen(),
       ),
       GoRoute(
         path: '/jobs/:id/applied/failed',
@@ -147,7 +147,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/booking/properties',
-        builder: (_, __) => const PropertyListScreen(),
+        builder: (_, _) => const PropertyListScreen(),
       ),
       GoRoute(
         path: '/booking/properties/:id',
@@ -169,9 +169,9 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, s) =>
             BookingConfirmedScreen(bookingId: s.pathParameters['bookingId']!),
       ),
-      GoRoute(path: '/booking/my-bookings', builder: (_, __) => const MyBookingsScreen()),
-      GoRoute(path: '/calendar', builder: (_, __) => const JainCalendarScreen()),
-      GoRoute(path: '/location', builder: (_, __) => const JainLocationScreen()),
+      GoRoute(path: '/booking/my-bookings', builder: (_, _) => const MyBookingsScreen()),
+      GoRoute(path: '/calendar', builder: (_, _) => const JainCalendarScreen()),
+      GoRoute(path: '/location', builder: (_, _) => const JainLocationScreen()),
       GoRoute(
         path: '/location/:id',
         builder: (_, s) =>
