@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../auth/state/auth_controller.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -37,7 +38,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ref.listen<AuthState>(authControllerProvider, (_, next) => _maybeNavigate(next));
+    ref.listen<AuthState>(
+      authControllerProvider,
+      (_, next) => _maybeNavigate(next),
+    );
     // Cover cold-start where auth resolved before the listener attached.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _maybeNavigate(ref.read(authControllerProvider));
@@ -47,7 +51,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.45,
           child: Image.asset(
-            'assets/splash/logo.png',
+            'assets/splash/splash_bg.png',
             fit: BoxFit.contain,
           ),
         ),

@@ -24,6 +24,15 @@ class JinvaniApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
       routerConfig: router,
+      builder: (context, child) {
+        // Increase all font sizes by 10% globally
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: const TextScaler.linear(1.1),
+          ),
+          child: child!,
+        );
+      },
     );
   }
 }
