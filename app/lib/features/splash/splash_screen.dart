@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../auth/state/auth_controller.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -47,13 +46,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       _maybeNavigate(ref.read(authControllerProvider));
     });
     return Scaffold(
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.45,
-          child: Image.asset(
-            'assets/splash/splash_bg.png',
-            fit: BoxFit.contain,
-          ),
+      body: SizedBox.expand(
+        child: Image.asset(
+          'assets/splash/splash_bg.png',
+          fit: BoxFit.cover,
         ),
       ),
     );

@@ -8,7 +8,24 @@ class AppTheme {
     final textTheme = GoogleFonts.interTextTheme(base.textTheme).apply(
       bodyColor: AppColors.textPrimary,
       displayColor: AppColors.textPrimary,
+    ).copyWith(
+      displayLarge: _lighten(base.textTheme.displayLarge),
+      displayMedium: _lighten(base.textTheme.displayMedium),
+      displaySmall: _lighten(base.textTheme.displaySmall),
+      headlineLarge: _lighten(base.textTheme.headlineLarge),
+      headlineMedium: _lighten(base.textTheme.headlineMedium),
+      headlineSmall: _lighten(base.textTheme.headlineSmall),
+      titleLarge: _lighten(base.textTheme.titleLarge),
+      titleMedium: _lighten(base.textTheme.titleMedium),
+      titleSmall: _lighten(base.textTheme.titleSmall),
+      bodyLarge: _lighten(base.textTheme.bodyLarge),
+      bodyMedium: _lighten(base.textTheme.bodyMedium),
+      bodySmall: _lighten(base.textTheme.bodySmall),
+      labelLarge: _lighten(base.textTheme.labelLarge),
+      labelMedium: _lighten(base.textTheme.labelMedium),
+      labelSmall: _lighten(base.textTheme.labelSmall),
     );
+
     return base.copyWith(
       scaffoldBackgroundColor: AppColors.bgWhite,
       colorScheme: base.colorScheme.copyWith(
@@ -41,5 +58,21 @@ class AppTheme {
         ),
       ),
     );
+  }
+
+  static TextStyle? _lighten(TextStyle? style) {
+    if (style == null) return null;
+    final weight = style.fontWeight ?? FontWeight.normal;
+    // Map weights down slightly to achieve the "10% reduction" look.
+    final newWeight = switch (weight) {
+      FontWeight.w900 => FontWeight.w800,
+      FontWeight.w800 => FontWeight.w700,
+      FontWeight.w700 => FontWeight.w600,
+      FontWeight.w600 => FontWeight.w500,
+      FontWeight.w500 => FontWeight.w400,
+      FontWeight.w400 => FontWeight.w300,
+      _ => weight,
+    };
+    return style.copyWith(fontWeight: newWeight);
   }
 }
