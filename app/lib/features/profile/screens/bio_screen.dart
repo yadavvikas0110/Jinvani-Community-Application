@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../core/theme/app_colors.dart';
 import '../state/profile_controller.dart';
-import '../widgets/labeled_field.dart';
 import '../widgets/profile_app_bar.dart';
 import '../widgets/profile_sticky_actions.dart';
 import '../widgets/section_card.dart';
@@ -107,8 +106,8 @@ class _BioScreenState extends ConsumerState<BioScreen> {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
             const SectionHeader(
-              title: 'Picture & Bio',
-              subtitle: 'Show the community who you are.',
+              title: 'Profile Picture & Bio',
+              subtitle: 'Add a photo and introduction — this is required',
             ),
             const SizedBox(height: 16),
             SectionCard(
@@ -157,15 +156,43 @@ class _BioScreenState extends ConsumerState<BioScreen> {
                     style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
                   ),
                   const SizedBox(height: 20),
-                  LabeledField(
-                    label: 'Brief Introduction',
-                    child: TextFormField(
-                      controller: _bio,
-                      maxLines: 5,
-                      maxLength: 500,
-                      decoration: const InputDecoration(
-                        hintText: 'A few sentences about you',
+                  Row(
+                    children: [
+                      const Expanded(
+                        child: Text(
+                          'Brief Introduction',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.textPrimary,
+                          ),
+                        ),
                       ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFE8E9),
+                          borderRadius: BorderRadius.circular(22),
+                        ),
+                        child: const Text(
+                          'Required',
+                          style: TextStyle(
+                            color: Color(0xFFD83E3E),
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    controller: _bio,
+                    maxLines: 5,
+                    maxLength: 500,
+                    decoration: const InputDecoration(
+                      hintText:
+                          'Write a short bio summarizing your skills, experience, or goals',
                     ),
                   ),
                 ],

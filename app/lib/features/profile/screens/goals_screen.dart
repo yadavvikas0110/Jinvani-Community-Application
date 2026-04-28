@@ -18,10 +18,14 @@ class _GoalsScreenState extends ConsumerState<GoalsScreen> {
   bool _saving = false;
 
   static const _goals = [
-    ('business_support', 'Business Support', 'Find partners, investors, and mentors',
+    ('business_support', 'Business Support',
+        'Connect with investors, mentors and resources to grow your business',
         Icons.trending_up),
-    ('matchmaking', 'Matchmaking', 'Meet prospective life partners', Icons.favorite_border),
-    ('job_assistance', 'Job Assistance', 'Discover roles from community members',
+    ('matchmaking', 'Matchmaking',
+        'Find compatible matches within the Jain community for marriage',
+        Icons.favorite_border),
+    ('job_assistance', 'Job Assistance',
+        'Get matched with job opportunities, career guidance and placement support',
         Icons.work_outline),
   ];
 
@@ -59,8 +63,8 @@ class _GoalsScreenState extends ConsumerState<GoalsScreen> {
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
         children: [
           const SectionHeader(
-            title: 'What brings you here?',
-            subtitle: 'Pick the areas you want the community to help with.',
+            title: 'What are your goals?',
+            subtitle: "Select all that apply — we'll personalise your experience",
           ),
           const SizedBox(height: 16),
           ..._goals.map((g) {

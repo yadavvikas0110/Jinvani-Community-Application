@@ -51,6 +51,13 @@ import '../features/profile/screens/verify_email_screen.dart';
 import '../features/profile/screens/work_details_screen.dart';
 import '../features/shell/nav_shell.dart';
 import '../features/splash/splash_screen.dart';
+import '../features/support/screens/customer_support_screen.dart';
+import '../features/support/screens/email_support_screen.dart';
+import '../features/support/screens/feedback_submitted_screen.dart';
+import '../features/support/screens/raise_ticket_screen.dart';
+import '../features/support/screens/share_feedback_screen.dart';
+import '../features/support/screens/support_menu_screen.dart';
+import '../features/support/screens/ticket_submitted_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final refresh = _RouterRefresh();
@@ -191,6 +198,32 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/booking/bookings/:id',
         builder: (_, s) =>
             BookingDetailScreen(bookingId: s.pathParameters['id']!),
+      ),
+      GoRoute(path: '/support', builder: (_, _) => const SupportMenuScreen()),
+      GoRoute(
+        path: '/support/customer',
+        builder: (_, _) => const CustomerSupportScreen(),
+      ),
+      GoRoute(
+        path: '/support/customer/ticket',
+        builder: (_, _) => const RaiseTicketScreen(),
+      ),
+      GoRoute(
+        path: '/support/customer/ticket/submitted',
+        builder: (_, s) =>
+            TicketSubmittedScreen(ticketRef: s.extra as String?),
+      ),
+      GoRoute(
+        path: '/support/customer/email',
+        builder: (_, _) => const EmailSupportScreen(),
+      ),
+      GoRoute(
+        path: '/support/feedback',
+        builder: (_, _) => const ShareFeedbackScreen(),
+      ),
+      GoRoute(
+        path: '/support/feedback/submitted',
+        builder: (_, _) => const FeedbackSubmittedScreen(),
       ),
     ],
   );

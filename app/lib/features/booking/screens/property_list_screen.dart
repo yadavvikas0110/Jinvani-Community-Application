@@ -135,22 +135,50 @@ class _PropertyListCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Property image
-          ClipRRect(
-            borderRadius:
-                const BorderRadius.vertical(top: Radius.circular(16)),
-            child: Image.network(
-              property.primaryImage,
-              height: 180,
-              width: double.infinity,
-              fit: BoxFit.cover,
-              errorBuilder: (_, _, _) => Container(
-                height: 180,
-                color: const Color(0xFFEDE9FF),
-                child: const Icon(Icons.apartment_outlined,
-                    size: 48, color: Color(0xFF7C3AED)),
+          // Property image with type pill overlay
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(16)),
+                child: Image.network(
+                  property.primaryImage,
+                  height: 180,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, _, _) => Container(
+                    height: 180,
+                    color: const Color(0xFFEDE9FF),
+                    child: const Icon(Icons.apartment_outlined,
+                        size: 48, color: Color(0xFF7C3AED)),
+                  ),
+                ),
               ),
-            ),
+              Positioned(
+                top: 12,
+                left: 12,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: property.type.toLowerCase() == 'hotel'
+                        ? const Color(0xFFF29100)
+                        : const Color(0xFF00A1E6),
+                    borderRadius: BorderRadius.circular(10000),
+                  ),
+                  child: Text(
+                    property.type.toLowerCase() == 'hotel'
+                        ? 'Hotel'
+                        : 'Dharamshala',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
 
           Padding(

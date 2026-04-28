@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../auth/state/auth_controller.dart';
 import '../state/profile_controller.dart';
 import '../widgets/labeled_field.dart';
 import '../widgets/profile_app_bar.dart';
@@ -89,7 +90,7 @@ class _PersonalDetailsScreenState extends ConsumerState<PersonalDetailsScreen> {
           children: [
             const SectionHeader(
               title: 'Personal Details',
-              subtitle: 'Tell us a bit about you — required fields.',
+              subtitle: 'Tell us about yourself to get personalized details',
             ),
             const SizedBox(height: 16),
             SectionCard(
@@ -160,12 +161,40 @@ class _PersonalDetailsScreenState extends ConsumerState<PersonalDetailsScreen> {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 14),
+                  LabeledField(
+                    label: 'Email',
+                    child: TextFormField(
+                      readOnly: true,
+                      initialValue:
+                          ref.watch(authControllerProvider).user?.email ?? '',
+                      decoration: const InputDecoration(
+                        hintText: 'priya@example.com',
+                        prefixIcon:
+                            Icon(Icons.mail_outline, size: 18, color: AppColors.textMuted),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  LabeledField(
+                    label: 'Mobile Number',
+                    child: TextFormField(
+                      readOnly: true,
+                      initialValue:
+                          ref.watch(authControllerProvider).user?.phone ?? '',
+                      decoration: const InputDecoration(
+                        hintText: '+91 9873467265',
+                        prefixIcon:
+                            Icon(Icons.phone_outlined, size: 18, color: AppColors.textMuted),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: 14),
             const Text(
-              '• Marked as Required — needed to use community features.',
+              '• Email and mobile are taken from your account.',
               style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
             ),
           ],

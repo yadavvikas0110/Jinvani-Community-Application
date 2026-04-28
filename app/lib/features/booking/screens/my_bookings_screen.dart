@@ -31,6 +31,18 @@ class _MyBookingsScreenState extends ConsumerState<MyBookingsScreen>
   Widget build(BuildContext context) {
     final bookingsAsync = ref.watch(myBookingsProvider);
 
+    final upcomingCount = bookingsAsync.maybeWhen(
+      data: (bookings) =>
+          bookings.where((b) => b.status == 'upcoming').length,
+      orElse: () => 0,
+    );
+    final pastCount = bookingsAsync.maybeWhen(
+      data: (bookings) => bookings
+          .where((b) => b.status == 'completed' || b.status == 'cancelled')
+          .length,
+      orElse: () => 0,
+    );
+
     return Scaffold(
       backgroundColor: const Color(0xFFF7F7F6),
       appBar: AppBar(
@@ -61,7 +73,10 @@ class _MyBookingsScreenState extends ConsumerState<MyBookingsScreen>
               const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
           unselectedLabelStyle:
               const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-          tabs: const [Tab(text: 'Upcoming'), Tab(text: 'Past')],
+          tabs: [
+            Tab(text: 'Upcoming ($upcomingCount)'),
+            Tab(text: 'Past ($pastCount)'),
+          ],
         ),
       ),
       body: bookingsAsync.when(

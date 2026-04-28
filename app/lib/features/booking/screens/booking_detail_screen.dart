@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../data/booking_repository.dart';
 import '../state/booking_controller.dart';
 
@@ -371,28 +372,100 @@ class BookingDetailScreen extends ConsumerWidget {
 
               // ── Past booking actions ─────────────────────────────────────
               if (!isUpcoming && !isCancelled) ...[
-                Row(
-                  children: [
-                    Expanded(
-                      child: OutlinedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.download_outlined,
-                            size: 16, color: _purple),
-                        label: const Text('Download Invoice',
-                            style: TextStyle(
-                                fontSize: 13,
-                                color: _purple,
-                                fontWeight: FontWeight.w600)),
-                        style: OutlinedButton.styleFrom(
-                          side: const BorderSide(color: _purple),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12)),
-                          padding:
-                              const EdgeInsets.symmetric(vertical: 14),
-                        ),
+                SizedBox(
+                  width: double.infinity,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color(0xFF193361),
+                          Color(0xFF5970AF),
+                          Color(0xFF985AC0),
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        stops: [0.0, 0.475, 1.0],
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                    ),
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.download_outlined,
+                          size: 18, color: Colors.white),
+                      label: const Text('Download Invoice',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        padding:
+                            const EdgeInsets.symmetric(vertical: 14),
                       ),
                     ),
-                  ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () => context.go('/booking'),
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: Color(0xFFE9E9E9)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    child: const Text('Book Again',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0xFF121A2C),
+                            fontWeight: FontWeight.w600)),
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
+
+              // ── Need Help (upcoming only) ────────────────────────────────
+              if (isUpcoming) ...[
+                SizedBox(
+                  width: double.infinity,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color(0xFF193361),
+                          Color(0xFF5970AF),
+                          Color(0xFF985AC0),
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        stops: [0.0, 0.475, 1.0],
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                    ),
+                    child: ElevatedButton.icon(
+                      onPressed: () => context.push('/support'),
+                      icon: const Icon(Icons.headset_mic_outlined,
+                          size: 18, color: Colors.white),
+                      label: const Text('Need Help',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        padding:
+                            const EdgeInsets.symmetric(vertical: 14),
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 12),
               ],

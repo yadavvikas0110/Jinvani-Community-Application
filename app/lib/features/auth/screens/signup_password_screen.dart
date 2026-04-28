@@ -92,7 +92,7 @@ class _SignupPasswordScreenState extends ConsumerState<SignupPasswordScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Set Password', style: TextStyle(color: AppColors.textPrimary)),
+                    const Text('Enter Password', style: TextStyle(color: AppColors.textPrimary)),
                     const SizedBox(height: 6),
                     TextFormField(
                       controller: _pw,

@@ -92,7 +92,7 @@ class _WorkDetailsScreenState extends ConsumerState<WorkDetailsScreen> {
           children: [
             const SectionHeader(
               title: 'Work Details',
-              subtitle: 'Share what you do — helps connect you with opportunities.',
+              subtitle: 'Tell us about your professional working details',
             ),
             const SizedBox(height: 16),
             SectionCard(

@@ -116,17 +116,17 @@ class _EconomicDataScreenState extends ConsumerState<EconomicDataScreen> {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
             const SectionHeader(
-              title: 'Economic Data',
-              subtitle: 'Your financial footprint — kept confidential to you.',
+              title: 'Financial Details',
+              subtitle: 'Add your financial details',
             ),
             const SizedBox(height: 16),
-            _GroupTitle('Financial Info'),
+            _GroupTitle('Basic Information'),
             SectionCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   LabeledField(
-                    label: 'Source of Income',
+                    label: 'Current Source of Income',
                     child: TextFormField(
                       controller: _source,
                       decoration:
@@ -155,7 +155,7 @@ class _EconomicDataScreenState extends ConsumerState<EconomicDataScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            _GroupTitle('Future Goals'),
+            _GroupTitle('Future Financial Goals'),
             SectionCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -188,7 +188,7 @@ class _EconomicDataScreenState extends ConsumerState<EconomicDataScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   LabeledField(
-                    label: 'Type',
+                    label: 'Investment Type',
                     child: TextFormField(
                       controller: _invType,
                       decoration:

@@ -91,6 +91,13 @@ class ProfileMenuScreen extends ConsumerWidget {
               filled: ref.watch(authControllerProvider).user?.isEmailVerified ?? false,
               onTap: () => context.push('/profile/verify-email'),
             ),
+            _MenuItem(
+              index: 9,
+              icon: Icons.support_agent_outlined,
+              title: 'Support & Feedback',
+              filled: false,
+              onTap: () => context.push('/support'),
+            ),
             const SizedBox(height: 24),
             TextButton.icon(
               onPressed: () async {
