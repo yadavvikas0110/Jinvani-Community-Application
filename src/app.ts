@@ -9,6 +9,7 @@ import { authRouter } from './modules/auth/auth.routes';
 import { familyRouter } from './modules/family/family.routes';
 import { feedRouter } from './modules/feed/feed.routes';
 import { profileRouter } from './modules/profile/profile.routes';
+import { supportRouter } from './modules/support/support.routes';
 
 export function createApp() {
   const app = express();
@@ -24,6 +25,7 @@ export function createApp() {
   app.use('/api/v1/users/me/profile', profileRouter);
   app.use('/api/v1/users/me/family', familyRouter);
   app.use('/api/v1/feed', feedRouter);
+  app.use('/api/v1/support', supportRouter);
 
   app.use('/static/uploads', express.static(path.join(os.tmpdir(), 'uploads')));
 
