@@ -1,0 +1,1037 @@
+{
+  "Home Page": {
+    "Rectangle 7938": {
+      "bg_colors": [],
+      "sample_texts": []
+    },
+    "Frame 1984079388": {
+      "bg_colors": [
+        "#bad4e5",
+        "#fd8f01",
+        "#fd4343",
+        "#f2c351",
+        "#d9e3fd",
+        "#b1d952",
+        "#e39854",
+        "#e73337",
+        "#c16b3f",
+        "#efbe9a"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "85%",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete your profile to unlock all features",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Job",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Booking",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "3 Family Requests",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Tap to view & respond",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#47609e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        }
+      ]
+    },
+    "Navigation Bar": {
+      "bg_colors": [
+        "#92949a",
+        "#d73e3e",
+        "#2c4e84"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Home",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#2c4e84"
+        },
+        {
+          "type": "TEXT",
+          "text": "Feed",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#92949a"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jobs",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#92949a"
+        },
+        {
+          "type": "TEXT",
+          "text": "Booking",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#92949a"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#92949a"
+        }
+      ]
+    },
+    "Status Bar": {
+      "bg_colors": [],
+      "sample_texts": []
+    },
+    "Frame 1597881083": {
+      "bg_colors": [],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Jai Jinendra, Rahul Jain",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#b2b2b2"
+        }
+      ]
+    },
+    "Input Field": {
+      "bg_colors": [],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Search here",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#494949"
+        }
+      ]
+    },
+    "Frame 1984079669": {
+      "bg_colors": [
+        "#8d531f",
+        "#ee4856",
+        "#2d2222",
+        "#03040d",
+        "#dba47b",
+        "#427d2a",
+        "#87cc71",
+        "#43494c",
+        "#34393e",
+        "#ad6739"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Job Assistance",
+          "fontSize": 13.0,
+          "fontWeight": 700,
+          "color": "#282525"
+        },
+        {
+          "type": "TEXT",
+          "text": "Match making",
+          "fontSize": 13.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Business Support",
+          "fontSize": 13.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Business Support",
+          "fontSize": 13.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        }
+      ]
+    }
+  },
+  "Community Feed, Posts and Blogs Flow": {
+    "Home Page": {
+      "bg_colors": [
+        "#bad4e5",
+        "#fd8f01",
+        "#fd4343",
+        "#f2c351",
+        "#b1d952",
+        "#e39854",
+        "#f4f4f7",
+        "#e73337",
+        "#c16b3f",
+        "#efbe9a"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Search here",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "85%",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete your profile to unlock all features",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Job",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Booking",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        }
+      ]
+    },
+    "Community Feed": {
+      "bg_colors": [
+        "#d9d9d9",
+        "#969798",
+        "#e73337",
+        "#24262b",
+        "#e7e5e5",
+        "#f6f6f5",
+        "#d6d9dd",
+        "#2c4e84",
+        "#f4f4f7",
+        "#fab110"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Share your thoughts",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Latest",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        }
+      ]
+    },
+    "Blogs & Articles": {
+      "bg_colors": [
+        "#d9d9d9",
+        "#24262b",
+        "#f6f6f5",
+        "#f4f4f7",
+        "#d6d9dd",
+        "#fab110"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Write a blog or article...",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Community Feed",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#6b7280"
+        },
+        {
+          "type": "TEXT",
+          "text": "Blogs & Articles",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#3d629a"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Latest",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "The Principles of Ahimsa in Modern Business",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#0f1728"
+        },
+        {
+          "type": "TEXT",
+          "text": "Exploring how the ancient Jain principle of non-violence can transform contemporary business practices and create sustainable, ethical enterprises.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#667084"
+        },
+        {
+          "type": "TEXT",
+          "text": "Dr Suresh Jain",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "A week ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#9a9da3"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Community: Building Stronger Networks",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#0f1728"
+        },
+        {
+          "type": "TEXT",
+          "text": "How Jain professionals and entrepreneurs are leveraging community connections to create",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#667084"
+        },
+        {
+          "type": "TEXT",
+          "text": "Meera Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "2 weeks ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#9a9da3"
+        },
+        {
+          "type": "TEXT",
+          "text": "Paryushan: A Time for Reflection and Growth",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#0f1728"
+        },
+        {
+          "type": "TEXT",
+          "text": "How Jain professionals and entrepreneurs are leveraging community connections to create",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#667084"
+        },
+        {
+          "type": "TEXT",
+          "text": "Meera Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "2 weeks ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#9a9da3"
+        }
+      ]
+    },
+    "Add Blogs": {
+      "bg_colors": [
+        "#d9d9d9",
+        "#9ca3af",
+        "#16a34a",
+        "#24262b",
+        "#eef2ff",
+        "#6f7681",
+        "#f6f6f5",
+        "#e5e7eb",
+        "#f4f4f7",
+        "#d6d9dd"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Write a blog or article...",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Community Feed",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#6b7280"
+        },
+        {
+          "type": "TEXT",
+          "text": "Blogs & Articles",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#3d629a"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Latest",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Philosophy",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4f46e9"
+        },
+        {
+          "type": "TEXT",
+          "text": "8 min read",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#999ca2"
+        },
+        {
+          "type": "TEXT",
+          "text": "The Principles of Ahimsa in Modern Business",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#0f1728"
+        },
+        {
+          "type": "TEXT",
+          "text": "Exploring how the ancient Jain principle of non-violence can transform contemporary business practices and create sustainable, ethical enterprises.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#667084"
+        },
+        {
+          "type": "TEXT",
+          "text": "Dr Suresh Jain",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "A week ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#9a9da3"
+        },
+        {
+          "type": "TEXT",
+          "text": "Community",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4f46e9"
+        },
+        {
+          "type": "TEXT",
+          "text": "8 min read",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#999ca2"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Community: Building Stronger Networks",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#0f1728"
+        },
+        {
+          "type": "TEXT",
+          "text": "How Jain professionals and entrepreneurs are leveraging community connections to create",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#667084"
+        },
+        {
+          "type": "TEXT",
+          "text": "Meera Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "2 weeks ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#9a9da3"
+        },
+        {
+          "type": "TEXT",
+          "text": "Spirituality",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4f46e9"
+        },
+        {
+          "type": "TEXT",
+          "text": "10 min read",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#999ca2"
+        },
+        {
+          "type": "TEXT",
+          "text": "Paryushan: A Time for Reflection and Growth",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#0f1728"
+        }
+      ]
+    },
+    "Add post": {
+      "bg_colors": [
+        "#d9d9d9",
+        "#969798",
+        "#9ca3af",
+        "#16a34a",
+        "#e73337",
+        "#24262b",
+        "#6f7681",
+        "#e7e5e5",
+        "#f6f6f5",
+        "#d6d9dd"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Share your thoughts",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Latest",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        }
+      ]
+    }
+  }
+}

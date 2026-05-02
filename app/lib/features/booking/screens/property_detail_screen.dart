@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/theme/app_colors.dart';
 import '../models/property.dart';
 import '../state/booking_controller.dart';
 
 class PropertyDetailScreen extends ConsumerWidget {
   final String propertyId;
   const PropertyDetailScreen({super.key, required this.propertyId});
+
+  static const _purple = AppColors.accent;
+
+  void _back(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/booking/properties');
+    }
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,20 +35,21 @@ class PropertyDetailScreen extends ConsumerWidget {
               body: Center(child: Text('Property not found')));
         }
         return Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: const Color(0xFFF7F7F6),
           body: CustomScrollView(
             slivers: [
-              // ── Hero image ────────────────────────────────────────────────
+              // ── Hero image with floating back ────────────────────────────
               SliverAppBar(
                 expandedHeight: 260,
                 pinned: true,
                 backgroundColor: Colors.white,
                 surfaceTintColor: Colors.white,
                 elevation: 0,
+                automaticallyImplyLeading: false,
                 leading: Padding(
                   padding: const EdgeInsets.all(8),
                   child: GestureDetector(
-                    onTap: () => Navigator.of(context).maybePop(),
+                    onTap: () => _back(context),
                     child: Container(
                       width: 36,
                       height: 36,
@@ -84,26 +96,27 @@ class PropertyDetailScreen extends ConsumerWidget {
                     errorBuilder: (_, _, _) => Container(
                       color: const Color(0xFFEDE9FF),
                       child: const Icon(Icons.apartment_outlined,
-                          size: 60, color: Color(0xFF7C3AED)),
+                          size: 60, color: _purple),
                     ),
                   ),
                 ),
               ),
 
               SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 40),
+                child: Container(
+                  color: Colors.white,
+                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // ── Category badge + rating ───────────────────────────
+                      // ── Type pill + rating pill ───────────────────────────
                       Row(
                         children: [
                           Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFEBF5FF),
+                              color: const Color(0xFFECF4FF),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Text(
@@ -113,63 +126,99 @@ class PropertyDetailScreen extends ConsumerWidget {
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
-                                color: Color(0xFF1D4ED8),
+                                color: Color(0xFF1B5BB3),
                               ),
                             ),
                           ),
                           const SizedBox(width: 10),
-                          const Icon(Icons.star,
-                              size: 14, color: Color(0xFFFFC107)),
-                          const SizedBox(width: 3),
-                          Text(
-                            '${property.rating} (${property.reviewCount})',
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF111827),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFFF9E3),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.star,
+                                    size: 13, color: Color(0xFFFFB300)),
+                                const SizedBox(width: 4),
+                                Text(
+                                  '${property.rating}',
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF101828),
+                                  ),
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  '(${property.reviewCount})',
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    color: Color(0xFF757F8F),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 10),
 
-                      // ── Property name ─────────────────────────────────────
+                      // ── Property name + location ──────────────────────────
                       Text(
                         property.title,
                         style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF111827),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF101828),
                         ),
                       ),
                       const SizedBox(height: 6),
                       Row(
                         children: [
                           const Icon(Icons.location_on_outlined,
-                              size: 14, color: Color(0xFF9CA3AF)),
+                              size: 16, color: Color(0xFF9CA3AF)),
                           const SizedBox(width: 4),
                           Text(
                             property.location,
                             style: const TextStyle(
-                              fontSize: 13,
-                              color: Color(0xFF6B7280),
+                              fontSize: 14,
+                              color: Color(0xFF4A5565),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 16),
-
-                      // ── Booking info card ─────────────────────────────────
-                      _BookingInfoCard(checkout: checkout),
                       const SizedBox(height: 20),
 
-                      // ── About this property ───────────────────────────────
+                      // ── Booking dates card (2-col) ────────────────────────
+                      _BookingDatesCard(checkout: checkout),
+                      const SizedBox(height: 12),
+
+                      // ── Guests & Rooms picker row ─────────────────────────
+                      _GuestsRoomsRow(checkout: checkout),
+                    ],
+                  ),
+                ),
+              ),
+
+              // ── About this property ─────────────────────────────────────
+              SliverToBoxAdapter(
+                child: Container(
+                  color: Colors.white,
+                  margin: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       const Text(
                         'About this property',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF101828),
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -177,64 +226,117 @@ class PropertyDetailScreen extends ConsumerWidget {
                         property.description,
                         style: const TextStyle(
                           fontSize: 13,
-                          color: Color(0xFF6B7280),
+                          color: Color(0xFF7E8288),
                           height: 1.6,
                         ),
                       ),
-                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
+              ),
 
-                      // ── Amenities ─────────────────────────────────────────
+              // ── Amenities ───────────────────────────────────────────────
+              SliverToBoxAdapter(
+                child: Container(
+                  color: Colors.white,
+                  margin: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       const Text(
                         'Amenities',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF101828),
                         ),
                       ),
                       const SizedBox(height: 12),
                       _AmenitiesGrid(amenities: property.amenities),
-                      const SizedBox(height: 24),
+                    ],
+                  ),
+                ),
+              ),
 
-                      // ── Select a Room ─────────────────────────────────────
+              // ── Choose a Room ───────────────────────────────────────────
+              SliverToBoxAdapter(
+                child: Container(
+                  color: Colors.white,
+                  margin: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       const Text(
-                        'Select a Room',
+                        'Choose a Room',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF101828),
                         ),
                       ),
-                      const SizedBox(height: 12),
-                      ...property.rooms.map((room) => Padding(
-                            padding: const EdgeInsets.only(bottom: 12),
-                            child: _RoomCard(
-                              room: room,
-                              onSelect: () {
-                                ref
+                      const SizedBox(height: 16),
+                      ...property.rooms.map((room) {
+                        final isSelected = checkout.selectedRoom?.id == room.id;
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: _RoomCard(
+                            room: room,
+                            propertyImage: property.primaryImage,
+                            amenities: property.amenities,
+                            isSelected: isSelected,
+                            roomCount: checkout.roomCount,
+                            onSelect: () {
+                              ref
+                                  .read(checkoutControllerProvider.notifier)
+                                  .selectRoom(room);
+                            },
+                            onContinue: () {
+                              ref
+                                  .read(checkoutControllerProvider.notifier)
+                                  .selectRoom(room);
+                              context.push(
+                                  '/booking/properties/$propertyId/checkout');
+                            },
+                            onIncRoom: () => ref
+                                .read(checkoutControllerProvider.notifier)
+                                .setRoomCount(checkout.roomCount + 1),
+                            onDecRoom: checkout.roomCount > 1
+                                ? () => ref
                                     .read(checkoutControllerProvider.notifier)
-                                    .selectRoom(room);
-                                context.push(
-                                    '/booking/properties/$propertyId/checkout');
-                              },
-                            ),
-                          )),
-                      const SizedBox(height: 8),
+                                    .setRoomCount(checkout.roomCount - 1)
+                                : null,
+                          ),
+                        );
+                      }),
+                    ],
+                  ),
+                ),
+              ),
 
-                      // ── Location map placeholder ──────────────────────────
+              // ── Location ────────────────────────────────────────────────
+              SliverToBoxAdapter(
+                child: Container(
+                  color: Colors.white,
+                  margin: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       const Text(
                         'Location',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF101828),
                         ),
                       ),
                       const SizedBox(height: 12),
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(20),
                         child: Container(
-                          height: 160,
+                          height: 200,
                           width: double.infinity,
                           color: const Color(0xFFE5E7EB),
                           child: const Center(
@@ -242,7 +344,7 @@ class PropertyDetailScreen extends ConsumerWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Icon(Icons.location_on,
-                                    size: 32, color: Color(0xFF7C3AED)),
+                                    size: 32, color: _purple),
                                 SizedBox(height: 6),
                                 Text('Map View',
                                     style: TextStyle(
@@ -251,6 +353,14 @@ class PropertyDetailScreen extends ConsumerWidget {
                               ],
                             ),
                           ),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        property.location,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          color: Color(0xFF6A7282),
                         ),
                       ),
                     ],
@@ -265,58 +375,90 @@ class PropertyDetailScreen extends ConsumerWidget {
   }
 }
 
-// ── Booking info card ─────────────────────────────────────────────────────────
+// ── Booking dates card (2-col with bottom duration strip) ───────────────────
 
-class _BookingInfoCard extends StatelessWidget {
+class _BookingDatesCard extends StatelessWidget {
   final CheckoutState checkout;
-  const _BookingInfoCard({required this.checkout});
+  const _BookingDatesCard({required this.checkout});
 
-  String _fmtDate(DateTime d) {
-    final dd = d.day.toString().padLeft(2, '0');
-    final mm = d.month.toString().padLeft(2, '0');
-    return '$dd-${mm.padLeft(2, '0')}-${d.year}';
+  String _shortMonth(int m) {
+    const months = [
+      '',
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    ];
+    return months[m];
+  }
+
+  String _weekdayName(int w) {
+    const days = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    return days[w];
   }
 
   @override
   Widget build(BuildContext context) {
-    final checkIn = checkout.checkIn;
-    final checkOut = checkout.checkOut;
-    final nights = checkout.nights;
-
     return Container(
-      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: const Color(0xFFF9F9F9),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFEEEEEE)),
+        border: Border.all(color: const Color(0xFFE2E9FF)),
       ),
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: _InfoCell(
-              label: 'Check-in',
-              value: checkIn != null ? _fmtDate(checkIn) : '--',
+          IntrinsicHeight(
+            child: Row(
+              children: [
+                Expanded(
+                  child: _DateCell(
+                    label: 'CHECK-IN',
+                    date: checkout.checkIn,
+                    monthFn: _shortMonth,
+                    weekdayFn: _weekdayName,
+                  ),
+                ),
+                Container(width: 1, color: const Color(0xFFE2E9FF)),
+                Expanded(
+                  child: _DateCell(
+                    label: 'CHECK-OUT',
+                    date: checkout.checkOut,
+                    monthFn: _shortMonth,
+                    weekdayFn: _weekdayName,
+                  ),
+                ),
+              ],
             ),
           ),
-          Container(width: 1, height: 36, color: const Color(0xFFE5E7EB)),
-          Expanded(
-            child: _InfoCell(
-              label: 'Check-out',
-              value: checkOut != null ? _fmtDate(checkOut) : '--',
+          // Duration strip
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFFEDF2FF), Color(0xFFF9F0FF)],
+              ),
+              border: Border(
+                top: BorderSide(color: Color(0xFFE2E9FF)),
+              ),
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(12),
+              ),
             ),
-          ),
-          Container(width: 1, height: 36, color: const Color(0xFFE5E7EB)),
-          Expanded(
-            child: _InfoCell(
-              label: 'Guests',
-              value: '${checkout.guests} Guests',
-            ),
-          ),
-          Container(width: 1, height: 36, color: const Color(0xFFE5E7EB)),
-          Expanded(
-            child: _InfoCell(
-              label: 'Duration',
-              value: nights > 0 ? '$nights Night${nights > 1 ? 's' : ''}' : '--',
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.calendar_today_outlined,
+                    size: 12, color: Color(0xFF0C3CBD)),
+                const SizedBox(width: 6),
+                Text(
+                  checkout.nights > 0
+                      ? '${checkout.nights} Night${checkout.nights > 1 ? 's' : ''}'
+                      : 'Select dates',
+                  style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF0C3CBD),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -325,32 +467,114 @@ class _BookingInfoCard extends StatelessWidget {
   }
 }
 
-class _InfoCell extends StatelessWidget {
+class _DateCell extends StatelessWidget {
   final String label;
-  final String value;
-  const _InfoCell({required this.label, required this.value});
+  final DateTime? date;
+  final String Function(int) monthFn;
+  final String Function(int) weekdayFn;
+
+  const _DateCell({
+    required this.label,
+    required this.date,
+    required this.monthFn,
+    required this.weekdayFn,
+  });
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(label,
-                style: const TextStyle(
-                    fontSize: 10, color: Color(0xFF9CA3AF))),
-            const SizedBox(height: 4),
-            Text(value,
-                style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF111827))),
-          ],
-        ),
-      );
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF355BC2),
+              letterSpacing: 0.5,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            date != null ? '${date!.day} ${monthFn(date!.month)}' : '--',
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFF33363B),
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            date != null
+                ? '${weekdayFn(date!.weekday)},${date!.year}'
+                : 'Not selected',
+            style: const TextStyle(
+              fontSize: 11,
+              color: Color(0xFF848F9E),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-// ── Amenities grid ────────────────────────────────────────────────────────────
+// ── Guests & Rooms row ───────────────────────────────────────────────────────
+
+class _GuestsRoomsRow extends StatelessWidget {
+  final CheckoutState checkout;
+  const _GuestsRoomsRow({required this.checkout});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(11),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFFECECF2)),
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.person_outline,
+              size: 20, color: Color(0xFF848F9E)),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'Guests & Rooms',
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Color(0xFF848F9E),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '${checkout.guests} Guests, ${checkout.roomCount} Room${checkout.roomCount > 1 ? 's' : ''}',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF1E2939),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Icon(Icons.chevron_right,
+              size: 20, color: Color(0xFF848F9E)),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Amenities grid (2x4) ─────────────────────────────────────────────────────
 
 class _AmenitiesGrid extends StatelessWidget {
   final List<String> amenities;
@@ -358,176 +582,425 @@ class _AmenitiesGrid extends StatelessWidget {
 
   IconData _icon(String amenity) {
     switch (amenity) {
-      case 'Mountain View': return Icons.landscape_outlined;
-      case 'Prayer Room': return Icons.temple_hindu_outlined;
-      case 'Library': return Icons.menu_book_outlined;
-      case 'Herbal Garden': return Icons.eco_outlined;
-      case 'Free WiFi': return Icons.wifi;
-      case 'Parking': return Icons.local_parking;
-      case 'Temple Nearby': return Icons.temple_hindu_outlined;
-      default: return Icons.check_circle_outline;
+      case 'Mountain View':
+        return Icons.landscape_outlined;
+      case 'Prayer Room':
+      case 'Temple Nearby':
+        return Icons.temple_hindu_outlined;
+      case 'Library':
+        return Icons.menu_book_outlined;
+      case 'Herbal Garden':
+        return Icons.eco_outlined;
+      case 'Free WiFi':
+        return Icons.wifi;
+      case 'Parking':
+      case 'Vehicle Parking':
+        return Icons.local_parking;
+      case 'Swimming Pool':
+        return Icons.pool_outlined;
+      case 'Dining Hall':
+        return Icons.restaurant_outlined;
+      case 'Medical Aid':
+        return Icons.medical_services_outlined;
+      default:
+        return Icons.check_circle_outline;
     }
+  }
+
+  Color _bgFor(int i) {
+    const palette = [
+      Color(0xFFF5F3FF),
+      Color(0xFFFDF4FF),
+      Color(0xFFFFFBEB),
+      Color(0xFFFFF7ED),
+      Color(0xFFEFF6FF),
+      Color(0xFFFFF1F2),
+      Color(0xFFECFCCB),
+      Color(0xFFE0F2FE),
+    ];
+    return palette[i % palette.length];
   }
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      mainAxisSpacing: 10,
-      crossAxisSpacing: 10,
-      childAspectRatio: 3.5,
-      children: amenities.map((a) => Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    return Wrap(
+      spacing: 12,
+      runSpacing: 12,
+      children: List.generate(amenities.length, (i) {
+        return SizedBox(
+          width: (MediaQuery.of(context).size.width - 16 * 2 - 12 * 3) / 4,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             decoration: BoxDecoration(
-              color: const Color(0xFFF3F0FF),
+              color: _bgFor(i),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Row(
+            child: Column(
               children: [
-                Container(
-                  width: 28,
-                  height: 28,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFEDE9FF),
-                    borderRadius: BorderRadius.circular(6),
+                Icon(_icon(amenities[i]),
+                    size: 18, color: const Color(0xFF374151)),
+                const SizedBox(height: 6),
+                Text(
+                  amenities[i],
+                  style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF364153),
                   ),
-                  child: Icon(_icon(a),
-                      size: 14, color: const Color(0xFF7C3AED)),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(a,
-                      style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF374151)),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
-          )).toList(),
+          ),
+        );
+      }),
     );
   }
 }
 
-// ── Room card ─────────────────────────────────────────────────────────────────
+// ── Room card ────────────────────────────────────────────────────────────────
 
 class _RoomCard extends StatelessWidget {
   final RoomType room;
+  final String propertyImage;
+  final List<String> amenities;
+  final bool isSelected;
+  final int roomCount;
   final VoidCallback onSelect;
+  final VoidCallback onContinue;
+  final VoidCallback onIncRoom;
+  final VoidCallback? onDecRoom;
 
-  const _RoomCard({required this.room, required this.onSelect});
+  const _RoomCard({
+    required this.room,
+    required this.propertyImage,
+    required this.amenities,
+    required this.isSelected,
+    required this.roomCount,
+    required this.onSelect,
+    required this.onContinue,
+    required this.onIncRoom,
+    required this.onDecRoom,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFEEEEEE)),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: Colors.black.withValues(alpha: 0.10),
             blurRadius: 6,
-            offset: const Offset(0, 2),
+            offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  room.name,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF111827),
+          // ── Image header with price overlay ──────────────────────────
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+            child: Stack(
+              children: [
+                Image.network(
+                  propertyImage,
+                  height: 128,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, _, _) => Container(
+                    height: 128,
+                    color: const Color(0xFFEDE9FF),
+                    child: const Icon(Icons.apartment_outlined,
+                        size: 40, color: AppColors.accent),
                   ),
                 ),
-              ),
-              RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: '₹${room.pricePerNight.toStringAsFixed(0)}',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                        color: Color(0xFF7C3AED),
+                Positioned(
+                  top: 12,
+                  right: 12,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.5),
+                      borderRadius: BorderRadius.circular(10000),
+                    ),
+                    child: RichText(
+                      text: TextSpan(
+                        style: const TextStyle(color: Colors.white),
+                        children: [
+                          TextSpan(
+                            text: '₹${room.pricePerNight.toStringAsFixed(0)}',
+                            style: const TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const TextSpan(
+                            text: ' /night',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const TextSpan(
-                      text: '/night',
-                      style: TextStyle(
-                          fontSize: 11, color: Color(0xFF9CA3AF)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // ── Body ────────────────────────────────────────────────────
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title row + availability pill
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            room.name,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF101828),
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            'Up to ${room.maxGuests} guests',
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Color(0xFF6A7282),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFDAFDE7),
+                        border:
+                            Border.all(color: const Color(0xFF9DD3B2)),
+                        borderRadius: BorderRadius.circular(22),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            width: 6,
+                            height: 6,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF09AD48),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            '${room.availableRooms} Left',
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF09AD48),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'Up to ${room.maxGuests} guests',
-            style: const TextStyle(
-                fontSize: 12, color: Color(0xFF6B7280)),
-          ),
-          const SizedBox(height: 8),
-          Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(
-              color: const Color(0xFFD1FAE5),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              '${room.availableRooms} rooms available',
-              style: const TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF059669),
-              ),
-            ),
-          ),
-          const SizedBox(height: 12),
-          SizedBox(
-            width: double.infinity,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFF1E1B4B), Color(0xFF7C3AED)],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+                const SizedBox(height: 16),
+
+                // Feature pills (uses property amenities, top 3)
+                if (amenities.isNotEmpty)
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: amenities
+                        .take(3)
+                        .map((a) => Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFF9FBFF),
+                                border: Border.all(
+                                    color: const Color(0xFFDBE1F6)),
+                                borderRadius: BorderRadius.circular(22),
+                              ),
+                              child: Text(
+                                a,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFF364153),
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                const SizedBox(height: 16),
+
+                // Number-of-rooms stepper (selected only)
+                if (isSelected) ...[
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFEEF2FF),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      children: [
+                        const Expanded(
+                          child: Text(
+                            'Number of rooms',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF101828),
+                            ),
+                          ),
+                        ),
+                        _StepBtn(
+                          icon: Icons.remove,
+                          onTap: onDecRoom,
+                          highlight: false,
+                        ),
+                        const SizedBox(width: 12),
+                        Text(
+                          '$roomCount',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF101828),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        _StepBtn(
+                          icon: Icons.add,
+                          onTap: roomCount < room.availableRooms
+                              ? onIncRoom
+                              : null,
+                          highlight: true,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                ],
+
+                // CTA
+                SizedBox(
+                  width: double.infinity,
+                  child: isSelected
+                      ? DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ElevatedButton.icon(
+                            onPressed: onContinue,
+                            icon: const Icon(Icons.check,
+                                size: 18, color: Colors.white),
+                            label: const Text(
+                              'Room Selected',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 11),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12)),
+                            ),
+                          ),
+                        )
+                      : ElevatedButton(
+                          onPressed: onSelect,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFEDEDF1),
+                            foregroundColor: const Color(0xFF0C0C0C),
+                            elevation: 0,
+                            padding:
+                                const EdgeInsets.symmetric(vertical: 11),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12)),
+                          ),
+                          child: const Text(
+                            'Select Room',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
                 ),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: ElevatedButton(
-                onPressed: onSelect,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-                child: const Text(
-                  'Select Room',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
-                ),
-              ),
+              ],
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _StepBtn extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onTap;
+  final bool highlight;
+  const _StepBtn({required this.icon, required this.onTap, required this.highlight});
+
+  @override
+  Widget build(BuildContext context) {
+    final enabled = onTap != null;
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 24,
+        height: 24,
+        decoration: BoxDecoration(
+          color: highlight && enabled
+              ? AppColors.accent
+              : const Color(0xFFF9FAFB),
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: highlight && enabled
+                ? AppColors.accent
+                : const Color(0xFFBBBFE3),
+          ),
+        ),
+        child: Icon(
+          icon,
+          size: 14,
+          color: highlight && enabled
+              ? Colors.white
+              : enabled
+                  ? const Color(0xFF1E2939)
+                  : const Color(0xFFD1D5DB),
+        ),
       ),
     );
   }

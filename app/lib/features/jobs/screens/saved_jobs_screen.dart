@@ -27,7 +27,7 @@ class SavedJobsScreen extends ConsumerWidget {
           'Saved jobs',
           style: TextStyle(
             color: AppColors.textPrimary,
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.w700,
           ),
         ),

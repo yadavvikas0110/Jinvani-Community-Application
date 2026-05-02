@@ -203,7 +203,7 @@ class _CategoryTile extends StatelessWidget {
                 child: Icon(
                   _iconMap[category.icon] ?? Icons.people_outline,
                   size: 18,
-                  color: const Color(0xFF7C3AED),
+                  color: AppColors.accent,
                 ),
               ),
               const SizedBox(width: 10),
@@ -354,10 +354,10 @@ class _Avatar extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
         gradient: LinearGradient(
-          colors: [Color(0xFF7C3AED), Color(0xFF9333EA)],
+          colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),

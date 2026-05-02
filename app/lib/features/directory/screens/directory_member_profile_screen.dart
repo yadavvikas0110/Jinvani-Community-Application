@@ -9,7 +9,7 @@ class DirectoryMemberProfileScreen extends ConsumerWidget {
 
   static const _gradStart = Color(0xFF1C427D);
   static const _gradMid   = Color(0xFF1B449C);
-  static const _gradEnd   = Color(0xFF7C3AED);
+  static const _gradEnd   = AppColors.accent;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -129,14 +129,14 @@ class DirectoryMemberProfileScreen extends ConsumerWidget {
                             child: OutlinedButton.icon(
                               onPressed: () {},
                               icon: const Icon(Icons.call_outlined,
-                                  size: 16, color: Color(0xFF7C3AED)),
+                                  size: 16, color: AppColors.accent),
                               label: const Text('Call',
                                   style: TextStyle(
-                                      color: Color(0xFF7C3AED),
+                                      color: AppColors.accent,
                                       fontWeight: FontWeight.w600)),
                               style: OutlinedButton.styleFrom(
                                 side: const BorderSide(
-                                    color: Color(0xFF7C3AED)),
+                                    color: AppColors.accent),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
                                 padding: const EdgeInsets.symmetric(
@@ -154,7 +154,7 @@ class DirectoryMemberProfileScreen extends ConsumerWidget {
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600)),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF7C3AED),
+                                backgroundColor: AppColors.accent,
                                 foregroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
@@ -294,7 +294,7 @@ class _DetailRow extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, size: 16, color: const Color(0xFF7C3AED)),
+            Icon(icon, size: 16, color: AppColors.accent),
             const SizedBox(width: 10),
             Expanded(
               child: Column(

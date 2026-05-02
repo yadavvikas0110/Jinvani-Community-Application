@@ -99,7 +99,8 @@ class _RequestCard extends StatelessWidget {
                         children: [
                           Text(inv.sender?.name ?? 'A family member',
                               style: const TextStyle(
-                                  fontWeight: FontWeight.w700,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
                                   color: AppColors.textPrimary)),
                           if (inv.sender?.city != null)
                             Text(inv.sender!.city!,
@@ -121,13 +122,13 @@ class _RequestCard extends StatelessWidget {
                     children: [
                       const Icon(Icons.link, size: 14, color: AppColors.accent),
                       const SizedBox(width: 6),
-                      Text(
-                        'Wants to add you as ${relationLabel(inv.relation).toLowerCase()}',
-                        style: const TextStyle(
-                            color: AppColors.accent,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500),
-                      ),
+                        Text(
+                          'Wants to add you as ${relationLabel(inv.relation).toLowerCase()}',
+                          style: const TextStyle(
+                              color: AppColors.accent,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500),
+                        ),
                     ],
                   ),
                 ),
@@ -145,8 +146,8 @@ class _RequestCard extends StatelessWidget {
                       child: const Text('View Request',
                           style: TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13)),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 10)),
                     ),
                   ],
                 ),

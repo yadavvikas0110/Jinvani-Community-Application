@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/theme/app_colors.dart';
 import '../state/booking_controller.dart';
 
 class BookingScreen extends ConsumerStatefulWidget {
@@ -10,13 +11,26 @@ class BookingScreen extends ConsumerStatefulWidget {
   ConsumerState<BookingScreen> createState() => _BookingScreenState();
 }
 
-class _BookingScreenState extends ConsumerState<BookingScreen> {
-  static const _purple = Color(0xFF7C3AED);
+enum _Section { none, guests, propertyType }
 
+enum _PropertyType { hotel, dharamshala, both }
+
+class _BookingScreenState extends ConsumerState<BookingScreen> {
+  static const _purple = AppColors.accent;
+
+  final _locationCtrl = TextEditingController();
   DateTime? _checkIn;
   DateTime? _checkOut;
-  int _guests = 2;
-  int _rooms = 1;
+  int _adults = 0;
+  int _children = 0;
+  _PropertyType? _propertyType;
+  _Section _open = _Section.none;
+
+  @override
+  void dispose() {
+    _locationCtrl.dispose();
+    super.dispose();
+  }
 
   String _fmtDate(DateTime d) {
     final dd = d.day.toString().padLeft(2, '0');
@@ -55,34 +69,47 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
     });
   }
 
-  void _showGuestPicker() {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-      builder: (_) => _GuestRoomPicker(
-        guests: _guests,
-        rooms: _rooms,
-        onChanged: (g, r) => setState(() {
-          _guests = g;
-          _rooms = r;
-        }),
-      ),
-    );
+  void _toggle(_Section s) {
+    setState(() => _open = _open == s ? _Section.none : s);
   }
 
   void _search() {
-    // Store dates/guests in checkout state so they're available downstream
+    final guests = _adults + _children;
     if (_checkIn != null && _checkOut != null) {
       ref.read(checkoutControllerProvider.notifier).setDates(_checkIn!, _checkOut!);
-      ref.read(checkoutControllerProvider.notifier).setGuests(_guests);
-      ref.read(checkoutControllerProvider.notifier).setRoomCount(_rooms);
+      ref.read(checkoutControllerProvider.notifier).setGuests(guests > 0 ? guests : 1);
     }
+    final typeFilter = switch (_propertyType) {
+      _PropertyType.hotel => 'Hotels',
+      _PropertyType.dharamshala => 'Dharamshala',
+      _PropertyType.both => 'All',
+      null => 'All',
+    };
+    ref.read(propertiesControllerProvider.notifier).selectType(typeFilter);
     context.push('/booking/properties');
+  }
+
+  void _back() {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/home');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final guestsLabel = switch (_adults + _children) {
+      0 => 'Choose guests',
+      final n => '$n Guest${n > 1 ? 's' : ''}',
+    };
+    final typeLabel = switch (_propertyType) {
+      _PropertyType.hotel => 'Hotel',
+      _PropertyType.dharamshala => 'Dharamshala',
+      _PropertyType.both => 'Both',
+      null => 'Choose property type',
+    };
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
@@ -90,265 +117,252 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
+        centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white, size: 22),
-          onPressed: () => Navigator.of(context).maybePop(),
+          icon: const Icon(Icons.arrow_back, color: Colors.white, size: 24),
+          onPressed: _back,
         ),
         title: const Text(
           'Book Accommodation',
           style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        padding: const EdgeInsets.only(bottom: 40),
+        child: Stack(
+          clipBehavior: Clip.none,
           children: [
-            // ── Hero image section ──────────────────────────────────────────
-            Stack(
-              children: [
-                SizedBox(
-                  height: 360,
-                  width: double.infinity,
-                  child: Image.network(
+            // ── Hero image with overlay ───────────────────────────────
+            SizedBox(
+              height: 340,
+              width: double.infinity,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
                     'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=800',
                     fit: BoxFit.cover,
-                    errorBuilder: (_, _, _) => Container(
-                      color: const Color(0xFF2D1B69),
+                    errorBuilder: (_, _, _) => Container(color: const Color(0xFF2D1B69)),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.black.withValues(alpha: 0.6),
+                          Colors.black.withValues(alpha: 0.2),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                // Dark gradient overlay
-                Container(
-                  height: 360,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black.withValues(alpha: 0.45),
-                        Colors.black.withValues(alpha: 0.25),
+                ],
+              ),
+            ),
+
+            // ── Foreground Content ───────────────────────────────────────────
+            Padding(
+              padding: const EdgeInsets.only(top: 240, left: 16, right: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Search card
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.06),
+                          blurRadius: 24,
+                          offset: const Offset(0, 8),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Location search
+                        _BorderedField(
+                          leading: const Icon(Icons.search, size: 20, color: Color(0xFF6B7280)),
+                          child: TextField(
+                            controller: _locationCtrl,
+                            decoration: const InputDecoration(
+                              hintText: 'Search location, hotel, dharamshala...',
+                              hintStyle: TextStyle(fontSize: 14, color: Color(0xFF9CA3AF)),
+                              border: InputBorder.none,
+                              isCollapsed: true,
+                            ),
+                            style: const TextStyle(fontSize: 14, color: Color(0xFF111827)),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Check-in / Check-out
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _DateFieldLabeled(
+                                label: 'Check-in',
+                                value: _checkIn != null ? _fmtDate(_checkIn!) : null,
+                                onTap: () => _pickDate(true),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: _DateFieldLabeled(
+                                label: 'Check-in', // Matches Figma explicitly
+                                value: _checkOut != null ? _fmtDate(_checkOut!) : null,
+                                onTap: () => _pickDate(false),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Guests collapsible
+                        _CollapsibleField(
+                          leadingIcon: Icons.person_outline,
+                          label: guestsLabel,
+                          labelColor: (_adults + _children) > 0 ? const Color(0xFF111827) : const Color(0xFF9CA3AF),
+                          expanded: _open == _Section.guests,
+                          onTap: () => _toggle(_Section.guests),
+                          body: Padding(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: Column(
+                              children: [
+                                _GuestRow(
+                                  label: 'Adults',
+                                  value: _adults,
+                                  onDec: _adults > 0 ? () => setState(() => _adults--) : null,
+                                  onInc: _adults < 10 ? () => setState(() => _adults++) : null,
+                                ),
+                                const SizedBox(height: 16),
+                                _GuestRow(
+                                  label: 'Children',
+                                  value: _children,
+                                  onDec: _children > 0 ? () => setState(() => _children--) : null,
+                                  onInc: _children < 10 ? () => setState(() => _children++) : null,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Property type collapsible
+                        _CollapsibleField(
+                          leadingIcon: Icons.apartment_outlined,
+                          label: typeLabel,
+                          labelColor: _propertyType != null ? const Color(0xFF111827) : const Color(0xFF9CA3AF),
+                          expanded: _open == _Section.propertyType,
+                          onTap: () => _toggle(_Section.propertyType),
+                          body: Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Column(
+                              children: [
+                                _RadioRow(
+                                  label: 'Hotel',
+                                  selected: _propertyType == _PropertyType.hotel,
+                                  onTap: () => setState(() => _propertyType = _PropertyType.hotel),
+                                ),
+                                _RadioRow(
+                                  label: 'Dharamshala',
+                                  selected: _propertyType == _PropertyType.dharamshala,
+                                  onTap: () => setState(() => _propertyType = _PropertyType.dharamshala),
+                                ),
+                                _RadioRow(
+                                  label: 'Both',
+                                  selected: _propertyType == _PropertyType.both,
+                                  onTap: () => setState(() => _propertyType = _PropertyType.both),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+
+                        // Search Properties button
+                        SizedBox(
+                          width: double.infinity,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: ElevatedButton(
+                              onPressed: _search,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                              ),
+                              child: const Text(
+                                'Search Properties',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
+                  const SizedBox(height: 32),
 
-            // ── Search card ─────────────────────────────────────────────────
-            Transform.translate(
-              offset: const Offset(0, -60),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.12),
-                        blurRadius: 20,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
+                  // ── What are you looking for? ─────────────────────────────
+                  const Text(
+                    'What are you looking for?',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF111827),
+                    ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  const SizedBox(height: 16),
+                  Row(
                     children: [
-                      // Search field
-                      Container(
-                        height: 48,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF5F5F5),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Search location, hotel, dharamshala...',
-                            hintStyle: TextStyle(
-                              fontSize: 13,
-                              color: Color(0xFF9CA3AF),
-                            ),
-                            prefixIcon: Icon(Icons.search,
-                                size: 20, color: Color(0xFF9CA3AF)),
-                            border: InputBorder.none,
-                            contentPadding:
-                                EdgeInsets.symmetric(vertical: 14),
-                          ),
+                      Expanded(
+                        child: _CategoryTile(
+                          icon: Icons.apartment_outlined,
+                          title: 'Hotels',
+                          subtitle: 'Premium stays with\nmodern amenities',
+                          onTap: () {
+                            ref.read(propertiesControllerProvider.notifier).selectType('Hotels');
+                            context.push('/booking/properties');
+                          },
                         ),
                       ),
-                      const SizedBox(height: 16),
-
-                      // Check-in / Check-out
-                      Row(
-                        children: [
-                          Expanded(
-                            child: _DateField(
-                              label: 'Check-in',
-                              value: _checkIn != null
-                                  ? _fmtDate(_checkIn!)
-                                  : null,
-                              onTap: () => _pickDate(true),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: _DateField(
-                              label: 'Check-out',
-                              value: _checkOut != null
-                                  ? _fmtDate(_checkOut!)
-                                  : null,
-                              onTap: () => _pickDate(false),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 12),
-
-                      // Guests & Rooms selector
-                      GestureDetector(
-                        onTap: _showGuestPicker,
-                        child: Container(
-                          height: 50,
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: 14),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFF5F5F5),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.person_outline,
-                                  size: 20, color: _purple),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  '$_guests Guests, $_rooms Room${_rooms > 1 ? 's' : ''}',
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: Color(0xFF374151),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                              const Icon(Icons.keyboard_arrow_down,
-                                  size: 20, color: Color(0xFF9CA3AF)),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-
-                      // Search Properties button
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF1E1B4B), Color(0xFF7C3AED)],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: ElevatedButton(
-                            onPressed: _search,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                              shadowColor: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12)),
-                            ),
-                            child: const Text(
-                              'Search Properties',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: _CategoryTile(
+                          icon: Icons.temple_hindu_outlined,
+                          title: 'Dharamshalas',
+                          subtitle: 'Spiritual stays near\ntemples',
+                          onTap: () {
+                            ref.read(propertiesControllerProvider.notifier).selectType('Dharamshala');
+                            context.push('/booking/properties');
+                          },
                         ),
                       ),
                     ],
                   ),
-                ),
+                ],
               ),
             ),
-
-            // ── What are you looking for ────────────────────────────────────
-            Transform.translate(
-              offset: const Offset(0, -44),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: const Color(0xFFEEEEEE)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.04),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'What are you looking for?',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF121A2C),
-                        ),
-                      ),
-                      const SizedBox(height: 14),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: _CategoryTile(
-                              icon: Icons.apartment_outlined,
-                              title: 'Hotels',
-                              subtitle: 'Premium stays with modern amenities',
-                              onTap: () {
-                                ref
-                                    .read(propertiesControllerProvider.notifier)
-                                    .selectType('Hotels');
-                                context.push('/booking/properties');
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: _CategoryTile(
-                              icon: Icons.temple_hindu_outlined,
-                              title: 'Dharamshalas',
-                              subtitle: 'Spiritual stays near temples',
-                              onTap: () {
-                                ref
-                                    .read(propertiesControllerProvider.notifier)
-                                    .selectType('Dharamshala');
-                                context.push('/booking/properties');
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
           ],
         ),
       ),
@@ -356,65 +370,298 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
   }
 }
 
-// ── Date field ────────────────────────────────────────────────────────────────
+// ── Bordered field shell ─────────────────────────────────────────────────────
 
-class _DateField extends StatelessWidget {
+class _BorderedField extends StatelessWidget {
+  final Widget? leading;
+  final Widget child;
+  final Widget? trailing;
+  final VoidCallback? onTap;
+  
+  const _BorderedField({
+    this.leading,
+    required this.child,
+    this.trailing,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final content = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFFE5E7EB)),
+      ),
+      child: Row(
+        children: [
+          if (leading != null) ...[
+            leading!,
+            const SizedBox(width: 12),
+          ],
+          Expanded(child: child),
+          ?trailing,
+        ],
+      ),
+    );
+    if (onTap == null) return content;
+    return GestureDetector(onTap: onTap, child: content);
+  }
+}
+
+// ── Date field with floating label ───────────────────────────────────────────
+
+class _DateFieldLabeled extends StatelessWidget {
   final String label;
   final String? value;
   final VoidCallback onTap;
-
-  const _DateField({
+  
+  const _DateFieldLabeled({
     required this.label,
     required this.value,
     required this.onTap,
   });
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
-        onTap: onTap,
-        child: Container(
-          height: 58,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: const Color(0xFFE5E7EB)),
+  Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF6B7280),
+            ),
           ),
+          const SizedBox(height: 6),
+          _BorderedField(
+            onTap: onTap,
+            trailing: const Icon(Icons.calendar_month_outlined, size: 20, color: Color(0xFF9CA3AF)),
+            child: Text(
+              value ?? 'dd-mm-yyyy',
+              style: TextStyle(
+                fontSize: 13,
+                color: value != null ? const Color(0xFF111827) : const Color(0xFF9CA3AF),
+              ),
+            ),
+          ),
+        ],
+      );
+}
+
+// ── Collapsible field ────────────────────────────────────────────────────────
+
+class _CollapsibleField extends StatelessWidget {
+  final IconData leadingIcon;
+  final String label;
+  final Color labelColor;
+  final bool expanded;
+  final VoidCallback onTap;
+  final Widget body;
+
+  const _CollapsibleField({
+    required this.leadingIcon,
+    required this.label,
+    required this.labelColor,
+    required this.expanded,
+    required this.onTap,
+    required this.body,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFFE5E7EB)),
+      ),
+      child: Column(
+        children: [
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: onTap,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+              child: Row(
+                children: [
+                  Icon(leadingIcon, size: 20, color: const Color(0xFF6B7280)),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      label,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: labelColor,
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    expanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                    size: 20,
+                    color: const Color(0xFF9CA3AF),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (expanded)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
+              child: body,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Guest counter row ────────────────────────────────────────────────────────
+
+class _GuestRow extends StatelessWidget {
+  final String label;
+  final int value;
+  final VoidCallback? onDec;
+  final VoidCallback? onInc;
+  
+  const _GuestRow({
+    required this.label,
+    required this.value,
+    required this.onDec,
+    required this.onInc,
+  });
+
+  @override
+  Widget build(BuildContext context) => Row(
+        children: [
+          Expanded(
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Color(0xFF111827),
+              ),
+            ),
+          ),
+          _CounterBtn(icon: Icons.remove, onTap: onDec, highlight: false),
+          SizedBox(
+            width: 36,
+            child: Text(
+              '$value',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF111827),
+              ),
+            ),
+          ),
+          _CounterBtn(icon: Icons.add, onTap: onInc, highlight: true),
+        ],
+      );
+}
+
+class _CounterBtn extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onTap;
+  final bool highlight;
+  
+  const _CounterBtn({
+    required this.icon,
+    required this.onTap,
+    required this.highlight,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final enabled = onTap != null;
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 28,
+        height: 28,
+        decoration: BoxDecoration(
+          color: highlight && enabled ? AppColors.accent : Colors.white,
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: highlight && enabled ? AppColors.accent : const Color(0xFFE5E7EB),
+          ),
+        ),
+        child: Icon(
+          icon,
+          size: 16,
+          color: highlight && enabled 
+              ? Colors.white 
+              : (enabled ? const Color(0xFF6B7280) : const Color(0xFFD1D5DB)),
+        ),
+      ),
+    );
+  }
+}
+
+// ── Radio row (property type) ────────────────────────────────────────────────
+
+class _RadioRow extends StatelessWidget {
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+  
+  const _RadioRow({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12),
           child: Row(
             children: [
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      label,
-                      style: const TextStyle(
-                          fontSize: 11, color: Color(0xFF9CA3AF)),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      value ?? 'dd-mm-yyyy',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                        color: value != null
-                            ? const Color(0xFF111827)
-                            : const Color(0xFF9CA3AF),
-                      ),
-                    ),
-                  ],
+                child: Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF111827),
+                  ),
                 ),
               ),
-              const Icon(Icons.calendar_month_outlined,
-                  size: 18, color: Color(0xFF9CA3AF)),
+              Container(
+                width: 20,
+                height: 20,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: selected ? AppColors.accent : const Color(0xFFD1D5DB),
+                    width: 1.5,
+                  ),
+                ),
+                child: selected 
+                  ? Center(
+                      child: Container(
+                        width: 10,
+                        height: 10,
+                        decoration: const BoxDecoration(
+                          color: AppColors.accent,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    )
+                  : null,
+              ),
             ],
           ),
         ),
       );
 }
 
-// ── Category tile ─────────────────────────────────────────────────────────────
+// ── Category tile ────────────────────────────────────────────────────────────
 
 class _CategoryTile extends StatelessWidget {
   final IconData icon;
@@ -433,22 +680,30 @@ class _CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) => GestureDetector(
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: const Color(0xFFF3F0FF),
-            borderRadius: BorderRadius.circular(14),
+            color: const Color(0xFFF5F3FF),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(icon, size: 28, color: const Color(0xFF7C3AED)),
-              const SizedBox(height: 10),
+              Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(icon, size: 20, color: AppColors.accent),
+              ),
+              const SizedBox(height: 16),
               Text(
                 title,
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xFF121A2C),
+                  color: Color(0xFF111827),
                 ),
               ),
               const SizedBox(height: 4),
@@ -462,161 +717,6 @@ class _CategoryTile extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      );
-}
-
-// ── Guest & Room picker bottom sheet ─────────────────────────────────────────
-
-class _GuestRoomPicker extends StatefulWidget {
-  final int guests;
-  final int rooms;
-  final void Function(int guests, int rooms) onChanged;
-
-  const _GuestRoomPicker({
-    required this.guests,
-    required this.rooms,
-    required this.onChanged,
-  });
-
-  @override
-  State<_GuestRoomPicker> createState() => _GuestRoomPickerState();
-}
-
-class _GuestRoomPickerState extends State<_GuestRoomPicker> {
-  late int _guests;
-  late int _rooms;
-
-  @override
-  void initState() {
-    super.initState();
-    _guests = widget.guests;
-    _rooms = widget.rooms;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 40,
-            height: 4,
-            decoration: BoxDecoration(
-              color: const Color(0xFFE5E7EB),
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-          const SizedBox(height: 20),
-          const Text('Select Guests & Rooms',
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFF121A2C))),
-          const SizedBox(height: 24),
-          _CounterRow(
-            label: 'Guests',
-            value: _guests,
-            onDecrease: _guests > 1 ? () => setState(() => _guests--) : null,
-            onIncrease: _guests < 10 ? () => setState(() => _guests++) : null,
-          ),
-          const SizedBox(height: 16),
-          _CounterRow(
-            label: 'Rooms',
-            value: _rooms,
-            onDecrease: _rooms > 1 ? () => setState(() => _rooms--) : null,
-            onIncrease: _rooms < 5 ? () => setState(() => _rooms++) : null,
-          ),
-          const SizedBox(height: 28),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                widget.onChanged(_guests, _rooms);
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF7C3AED),
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
-                elevation: 0,
-              ),
-              child: const Text('Done',
-                  style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _CounterRow extends StatelessWidget {
-  final String label;
-  final int value;
-  final VoidCallback? onDecrease;
-  final VoidCallback? onIncrease;
-
-  const _CounterRow({
-    required this.label,
-    required this.value,
-    required this.onDecrease,
-    required this.onIncrease,
-  });
-
-  @override
-  Widget build(BuildContext context) => Row(
-        children: [
-          Expanded(
-            child: Text(label,
-                style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF374151))),
-          ),
-          _Btn(icon: Icons.remove, onTap: onDecrease),
-          SizedBox(
-            width: 40,
-            child: Text('$value',
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF111827))),
-          ),
-          _Btn(icon: Icons.add, onTap: onIncrease),
-        ],
-      );
-}
-
-class _Btn extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback? onTap;
-
-  const _Btn({required this.icon, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) => GestureDetector(
-        onTap: onTap,
-        child: Container(
-          width: 34,
-          height: 34,
-          decoration: BoxDecoration(
-            color: onTap != null
-                ? const Color(0xFFEDE9FF)
-                : const Color(0xFFF3F4F6),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(icon,
-              size: 16,
-              color: onTap != null
-                  ? const Color(0xFF7C3AED)
-                  : const Color(0xFFD1D5DB)),
         ),
       );
 }

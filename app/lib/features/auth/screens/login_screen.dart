@@ -189,7 +189,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text('Welcome Back',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: AppColors.textPrimary)),
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.textPrimary)),
                     const SizedBox(height: 4),
                     const Text('Login to continue', style: TextStyle(color: AppColors.textSecondary)),
                     const SizedBox(height: 24),
@@ -283,7 +283,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Didn't have an account? ",
+                          const Text("Don't have an account? ",
                               style: TextStyle(color: AppColors.textSecondary)),
                           GestureDetector(
                             onTap: () => context.go('/signup/details'),

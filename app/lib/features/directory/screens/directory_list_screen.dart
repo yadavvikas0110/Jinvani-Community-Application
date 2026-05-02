@@ -88,7 +88,7 @@ class _DirectoryListScreenState extends ConsumerState<DirectoryListScreen> {
         title: Text(
           _title,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.w700,
             color: Color(0xFF121A2C),
           ),
@@ -110,7 +110,7 @@ class _DirectoryListScreenState extends ConsumerState<DirectoryListScreen> {
                     width: 8,
                     height: 8,
                     decoration: const BoxDecoration(
-                      color: Color(0xFF7C3AED),
+                      color: AppColors.accent,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -248,7 +248,7 @@ class _MemberListCard extends StatelessWidget {
                         ),
                         if (member.isVerified)
                           const Icon(Icons.verified,
-                              size: 16, color: Color(0xFF7C3AED)),
+                              size: 16, color: AppColors.accent),
                       ],
                     ),
                     const SizedBox(height: 2),
@@ -303,14 +303,14 @@ class _TagPill extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
         decoration: BoxDecoration(
-          color: const Color(0xFFF3F0FF),
+          color: AppColors.accent.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(4),
         ),
         child: Text(
           tag,
           style: const TextStyle(
             fontSize: 10,
-            color: Color(0xFF7C3AED),
+            color: AppColors.accent,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -326,18 +326,18 @@ class _ActiveFilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        color: const Color(0xFFF3F0FF),
+        color: AppColors.accent.withValues(alpha: 0.1),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
           children: [
             const Icon(Icons.filter_list,
-                size: 14, color: Color(0xFF7C3AED)),
+                size: 14, color: AppColors.accent),
             const SizedBox(width: 6),
             Expanded(
               child: Text(
                 tags.join(', '),
                 style: const TextStyle(
-                    fontSize: 12, color: Color(0xFF7C3AED)),
+                    fontSize: 12, color: AppColors.accent),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -347,7 +347,7 @@ class _ActiveFilterBar extends StatelessWidget {
                 'Clear',
                 style: TextStyle(
                     fontSize: 12,
-                    color: Color(0xFF7C3AED),
+                    color: AppColors.accent,
                     fontWeight: FontWeight.w600),
               ),
             ),
@@ -370,12 +370,12 @@ class _EmptyState extends StatelessWidget {
             Container(
               width: 72,
               height: 72,
-              decoration: const BoxDecoration(
-                color: Color(0xFFF3F0FF),
+              decoration: BoxDecoration(
+                color: AppColors.accent.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.people_outline,
-                  size: 32, color: Color(0xFF7C3AED)),
+                  size: 32, color: AppColors.accent),
             ),
             const SizedBox(height: 16),
             const Text('No members found',
@@ -391,12 +391,12 @@ class _EmptyState extends StatelessWidget {
             OutlinedButton(
               onPressed: onReset,
               style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Color(0xFF7C3AED)),
+                side: const BorderSide(color: AppColors.accent),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
               ),
               child: const Text('Clear Filters',
-                  style: TextStyle(color: Color(0xFF7C3AED))),
+                  style: TextStyle(color: AppColors.accent)),
             ),
           ],
         ),
@@ -484,12 +484,12 @@ class _FilterSheetState extends State<_FilterSheet> {
                       horizontal: 14, vertical: 12),
                   decoration: BoxDecoration(
                     color: selected
-                        ? const Color(0xFFF3F0FF)
+                        ? AppColors.accent.withValues(alpha: 0.1)
                         : Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: selected
-                          ? const Color(0xFF7C3AED)
+                          ? AppColors.accent
                           : const Color(0xFFE5E7EB),
                       width: selected ? 1.5 : 1,
                     ),
@@ -503,7 +503,7 @@ class _FilterSheetState extends State<_FilterSheet> {
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: selected
-                                ? const Color(0xFF7C3AED)
+                                ? AppColors.accent
                                 : const Color(0xFF374151),
                           ),
                         ),
@@ -514,11 +514,11 @@ class _FilterSheetState extends State<_FilterSheet> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: selected
-                              ? const Color(0xFF7C3AED)
+                              ? AppColors.accent
                               : Colors.white,
                           border: Border.all(
                             color: selected
-                                ? const Color(0xFF7C3AED)
+                                ? AppColors.accent
                                 : const Color(0xFFD1D5DB),
                           ),
                         ),
@@ -555,7 +555,7 @@ class _FilterSheetState extends State<_FilterSheet> {
                   child: ElevatedButton(
                     onPressed: () => widget.onApply(_selected),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF7C3AED),
+                      backgroundColor: AppColors.accent,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),
@@ -586,10 +586,10 @@ class _MemberAvatar extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
         gradient: LinearGradient(
-          colors: [Color(0xFF7C3AED), Color(0xFF9333EA)],
+          colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),

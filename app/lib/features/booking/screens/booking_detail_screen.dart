@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/theme/app_colors.dart';
 import '../data/booking_repository.dart';
 import '../state/booking_controller.dart';
 
@@ -8,7 +9,7 @@ class BookingDetailScreen extends ConsumerWidget {
   final String bookingId;
   const BookingDetailScreen({super.key, required this.bookingId});
 
-  static const _purple = Color(0xFF7C3AED);
+  static const _purple = AppColors.accent;
 
   String _fmtDate(DateTime d) {
     const months = [
@@ -30,16 +31,23 @@ class BookingDetailScreen extends ConsumerWidget {
         surfaceTintColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.black12,
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back,
               color: Color(0xFF121A2C), size: 22),
-          onPressed: () => Navigator.of(context).maybePop(),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/booking/my-bookings');
+            }
+          },
         ),
         title: const Text(
           'Booking Details',
           style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
             color: Color(0xFF121A2C),
           ),
         ),
@@ -64,8 +72,8 @@ class BookingDetailScreen extends ConsumerWidget {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   gradient: isUpcoming
-                      ? const LinearGradient(
-                          colors: [Color(0xFF1E1B4B), Color(0xFF7C3AED)],
+                      ? LinearGradient(
+                          colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         )
@@ -376,15 +384,10 @@ class BookingDetailScreen extends ConsumerWidget {
                   width: double.infinity,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFF193361),
-                          Color(0xFF5970AF),
-                          Color(0xFF985AC0),
-                        ],
+                      gradient: LinearGradient(
+                        colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
-                        stops: [0.0, 0.475, 1.0],
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
@@ -435,15 +438,10 @@ class BookingDetailScreen extends ConsumerWidget {
                   width: double.infinity,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFF193361),
-                          Color(0xFF5970AF),
-                          Color(0xFF985AC0),
-                        ],
+                      gradient: LinearGradient(
+                        colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
-                        stops: [0.0, 0.475, 1.0],
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
@@ -709,7 +707,7 @@ class _StayDateBox extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(icon, size: 13, color: const Color(0xFF7C3AED)),
+                Icon(icon, size: 13, color: AppColors.accent),
                 const SizedBox(width: 4),
                 Text(label,
                     style: const TextStyle(
@@ -786,7 +784,7 @@ class _PriceRow extends StatelessWidget {
                   fontWeight:
                       isBold ? FontWeight.w800 : FontWeight.w500,
                   color: isBold
-                      ? const Color(0xFF7C3AED)
+                      ? AppColors.accent
                       : const Color(0xFF374151))),
         ],
       );

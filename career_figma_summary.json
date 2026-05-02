@@ -1,0 +1,338 @@
+{
+  "Business Owners": {
+    "bg_colors": [],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Business Owners",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#1d1d1f"
+      }
+    ]
+  },
+  "All Business Owners": {
+    "bg_colors": [
+      "#d6d9dd",
+      "#d73e3e",
+      "#d9d9d9",
+      "#2c4e84",
+      "#181818",
+      "#24262b",
+      "#f6f6f5",
+      "#92949a",
+      "#f4f4f7",
+      "#f4f4f8"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "All Business Owners",
+        "fontSize": 18.0,
+        "fontWeight": 600,
+        "color": "#181818"
+      },
+      {
+        "type": "TEXT",
+        "text": "Search by name, role, profession....",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#494949"
+      },
+      {
+        "type": "TEXT",
+        "text": "Home",
+        "fontSize": 12.0,
+        "fontWeight": 600,
+        "color": "#2c4e84"
+      },
+      {
+        "type": "TEXT",
+        "text": "Feed",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Jobs",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Profile",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Sunita Kothari",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#1d1d1f"
+      },
+      {
+        "type": "TEXT",
+        "text": "Business Owner",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#86868b"
+      },
+      {
+        "type": "TEXT",
+        "text": "Surat, Gujarat",
+        "fontSize": 11.0,
+        "fontWeight": 400,
+        "color": "#aaafb9"
+      },
+      {
+        "type": "TEXT",
+        "text": "1 hour ago",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#aaafb9"
+      },
+      {
+        "type": "TEXT",
+        "text": "Sunita Kothari",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#1d1d1f"
+      },
+      {
+        "type": "TEXT",
+        "text": "Business Owner",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#86868b"
+      },
+      {
+        "type": "TEXT",
+        "text": "Surat, Gujarat",
+        "fontSize": 11.0,
+        "fontWeight": 400,
+        "color": "#aaafb9"
+      },
+      {
+        "type": "TEXT",
+        "text": "1 hour ago",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#aaafb9"
+      },
+      {
+        "type": "TEXT",
+        "text": "Sunita Kothari",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#1d1d1f"
+      },
+      {
+        "type": "TEXT",
+        "text": "Business Owner",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#86868b"
+      },
+      {
+        "type": "TEXT",
+        "text": "Surat, Gujarat",
+        "fontSize": 11.0,
+        "fontWeight": 400,
+        "color": "#aaafb9"
+      },
+      {
+        "type": "TEXT",
+        "text": "1 hour ago",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#aaafb9"
+      },
+      {
+        "type": "TEXT",
+        "text": "Rajesh Shah",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#1d1d1f"
+      }
+    ]
+  },
+  "Business owners and entrepreneurs": {
+    "bg_colors": [],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Business owners and entrepreneurs",
+        "fontSize": 13.0,
+        "fontWeight": 400,
+        "color": "#000000"
+      }
+    ]
+  },
+  "Job Seeker Flow": {
+    "bg_colors": [
+      "#909193",
+      "#2c4e84",
+      "#f2c351",
+      "#e7e5e5",
+      "#f7d881",
+      "#85a2d2",
+      "#444444",
+      "#969798",
+      "#fadfb2",
+      "#fac41d"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Home",
+        "fontSize": 12.0,
+        "fontWeight": 600,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Feed",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Jobs",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#2c4e84"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Profile",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Who are you?",
+        "fontSize": 20.0,
+        "fontWeight": 600,
+        "color": "#000000"
+      },
+      {
+        "type": "TEXT",
+        "text": "I'm a Recruiter",
+        "fontSize": 16.0,
+        "fontWeight": 500,
+        "color": "#121a2c"
+      },
+      {
+        "type": "TEXT",
+        "text": "I'm a Job Seeker ",
+        "fontSize": 16.0,
+        "fontWeight": 500,
+        "color": "#121a2c"
+      },
+      {
+        "type": "TEXT",
+        "text": "Continue",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "Home",
+        "fontSize": 12.0,
+        "fontWeight": 600,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Feed",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Jobs",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#2c4e84"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Profile",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Personal Information",
+        "fontSize": 20.0,
+        "fontWeight": 600,
+        "color": "#000000"
+      },
+      {
+        "type": "TEXT",
+        "text": "Full Name",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#121a2c"
+      },
+      {
+        "type": "TEXT",
+        "text": "Your full name",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#9ea1a8"
+      },
+      {
+        "type": "TEXT",
+        "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#121a2c"
+      },
+      {
+        "type": "TEXT",
+        "text": "Email",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#121a2c"
+      },
+      {
+        "type": "TEXT",
+        "text": "priya@example.com",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#9ea1a8"
+      }
+    ]
+  }
+}

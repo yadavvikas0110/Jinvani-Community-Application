@@ -126,7 +126,7 @@ class _JobApplyScreenState extends ConsumerState<JobApplyScreen> {
               'Apply to ${job.company}',
               style: const TextStyle(
                 color: AppColors.textPrimary,
-                fontSize: 15,
+                fontSize: 18,
                 fontWeight: FontWeight.w700,
               ),
               overflow: TextOverflow.ellipsis,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/theme/app_colors.dart';
 import '../models/property.dart';
 import '../state/booking_controller.dart';
 
@@ -50,24 +51,31 @@ class _MyBookingsScreenState extends ConsumerState<MyBookingsScreen>
         surfaceTintColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.black12,
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back,
               color: Color(0xFF121A2C), size: 22),
-          onPressed: () => Navigator.of(context).maybePop(),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/booking');
+            }
+          },
         ),
         title: const Text(
           'My Bookings',
           style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
             color: Color(0xFF121A2C),
           ),
         ),
         bottom: TabBar(
           controller: _tabController,
-          labelColor: const Color(0xFF7C3AED),
+          labelColor: AppColors.accent,
           unselectedLabelColor: const Color(0xFF9CA3AF),
-          indicatorColor: const Color(0xFF7C3AED),
+          indicatorColor: AppColors.accent,
           indicatorWeight: 2.5,
           labelStyle:
               const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
@@ -145,7 +153,7 @@ class _BookingList extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.calendar_today_outlined,
-                  size: 36, color: Color(0xFF7C3AED)),
+                  size: 36, color: AppColors.accent),
             ),
             const SizedBox(height: 16),
             Text(
@@ -165,7 +173,7 @@ class _BookingList extends StatelessWidget {
             OutlinedButton(
               onPressed: onExplore,
               style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Color(0xFF7C3AED)),
+                side: const BorderSide(color: AppColors.accent),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 padding: const EdgeInsets.symmetric(
@@ -174,7 +182,7 @@ class _BookingList extends StatelessWidget {
               child: const Text(
                 'Explore Properties',
                 style: TextStyle(
-                    color: Color(0xFF7C3AED),
+                    color: AppColors.accent,
                     fontWeight: FontWeight.w600),
               ),
             ),
@@ -235,8 +243,8 @@ class _BookingCard extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               decoration: BoxDecoration(
                 gradient: isUpcoming
-                    ? const LinearGradient(
-                        colors: [Color(0xFF1E1B4B), Color(0xFF7C3AED)],
+                    ? LinearGradient(
+                        colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                       )
@@ -414,7 +422,7 @@ class _BookingCard extends StatelessWidget {
                             style: const TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w800,
-                              color: Color(0xFF7C3AED),
+                              color: AppColors.accent,
                             ),
                           ),
                         ],
@@ -425,7 +433,7 @@ class _BookingCard extends StatelessWidget {
                             .push('/booking/bookings/${booking.id}'),
                         style: OutlinedButton.styleFrom(
                           side: const BorderSide(
-                              color: Color(0xFF7C3AED), width: 1.5),
+                              color: AppColors.accent, width: 1.5),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           padding: const EdgeInsets.symmetric(
@@ -436,7 +444,7 @@ class _BookingCard extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xFF7C3AED),
+                            color: AppColors.accent,
                           ),
                         ),
                       ),
@@ -459,7 +467,7 @@ class _BookingCard extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         child: const Icon(Icons.apartment_outlined,
-            color: Color(0xFF7C3AED), size: 28),
+            color: AppColors.accent, size: 28),
       );
 
   String _statusLabel(String status) {
@@ -495,7 +503,7 @@ class _InfoCell extends StatelessWidget {
           const SizedBox(height: 3),
           Row(
             children: [
-              Icon(icon, size: 12, color: const Color(0xFF7C3AED)),
+              Icon(icon, size: 12, color: AppColors.accent),
               const SizedBox(width: 3),
               Text(value,
                   style: const TextStyle(

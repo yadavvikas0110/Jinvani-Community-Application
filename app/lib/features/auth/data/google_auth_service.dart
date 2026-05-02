@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -16,8 +17,8 @@ class GoogleAuthService {
       // using google-auth-library, NOT Firebase Admin SDK
       return googleAuth.idToken;
     } catch (e, st) {
-      print('[GoogleAuthService] Error: $e');
-      print(st);
+      debugPrint('[GoogleAuthService] Error: $e');
+      debugPrint(st.toString());
       rethrow;
     }
   }

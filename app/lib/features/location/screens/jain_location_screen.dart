@@ -66,13 +66,13 @@ class _JainLocationScreenState extends ConsumerState<JainLocationScreen>
         bottom: TabBar(
           controller: _tabCtrl,
           labelColor: Colors.white,
-          unselectedLabelColor: const Color(0xFF7C3AED),
+          unselectedLabelColor: AppColors.accent,
           labelStyle: const TextStyle(
               fontSize: 12, fontWeight: FontWeight.w600),
           unselectedLabelStyle: const TextStyle(
               fontSize: 12, fontWeight: FontWeight.w500),
           indicator: BoxDecoration(
-            color: const Color(0xFF7C3AED),
+            color: AppColors.accent,
             borderRadius: BorderRadius.circular(20),
           ),
           indicatorSize: TabBarIndicatorSize.tab,
@@ -156,7 +156,7 @@ class _JainLocationScreenState extends ConsumerState<JainLocationScreen>
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF7C3AED),
+                  backgroundColor: AppColors.accent,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)),
@@ -251,9 +251,9 @@ class _LocationCard extends StatelessWidget {
                   errorBuilder: (_, _, _) => Container(
                     width: 90,
                     height: 90,
-                    color: const Color(0xFFEDE9FF),
+                    color: AppColors.accent.withValues(alpha: 0.1),
                     child: const Icon(Icons.place_outlined,
-                        color: Color(0xFF7C3AED), size: 32),
+                        color: AppColors.accent, size: 32),
                   ),
                 ),
               ),
@@ -283,7 +283,7 @@ class _LocationCard extends StatelessWidget {
                                 : Icons.bookmark_border,
                             size: 18,
                             color: location.isSaved
-                                ? const Color(0xFF7C3AED)
+                                ? AppColors.accent
                                 : AppColors.textMuted,
                           ),
                         ],
@@ -371,8 +371,8 @@ class _CategoryPill extends StatelessWidget {
         label = 'Dharmshala';
         break;
       default:
-        bg = const Color(0xFFF3F0FF);
-        fg = const Color(0xFF7C3AED);
+        bg = AppColors.accent.withValues(alpha: 0.1);
+        fg = AppColors.accent;
         label = category;
     }
     return Container(
@@ -403,12 +403,12 @@ class _EmptyState extends StatelessWidget {
             Container(
               width: 72,
               height: 72,
-              decoration: const BoxDecoration(
-                color: Color(0xFFF3F0FF),
+              decoration: BoxDecoration(
+                color: AppColors.accent.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.place_outlined,
-                  size: 32, color: Color(0xFF7C3AED)),
+                  size: 32, color: AppColors.accent),
             ),
             const SizedBox(height: 16),
             Text(

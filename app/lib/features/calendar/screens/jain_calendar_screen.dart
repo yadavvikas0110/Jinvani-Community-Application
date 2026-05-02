@@ -7,7 +7,7 @@ import '../state/calendar_controller.dart';
 class JainCalendarScreen extends ConsumerWidget {
   const JainCalendarScreen({super.key});
 
-  static const _purple = Color(0xFF7C3AED);
+  static const _purple = AppColors.accent;
 
   static const _monthNames = [
     '', 'January', 'February', 'March', 'April', 'May', 'June',
@@ -282,7 +282,7 @@ class _DayCell extends StatelessWidget {
   final bool hasFestival;
   final VoidCallback onTap;
 
-  static const _purple      = Color(0xFF7C3AED);
+  static const _purple      = AppColors.accent;
   static const _orange      = Color(0xFFFF8C00);
 
   const _DayCell({
@@ -354,7 +354,7 @@ class _SelectedFestivalCard extends StatelessWidget {
   final JainFestival festival;
   const _SelectedFestivalCard({required this.festival});
 
-  static const _purple = Color(0xFF7C3AED);
+  static const _purple = AppColors.accent;
 
   @override
   Widget build(BuildContext context) {
@@ -499,7 +499,7 @@ class _FestivalListItem extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 color: days == 0
                     ? const Color(0xFF059669)
-                    : const Color(0xFF7C3AED),
+                    : AppColors.accent,
               ),
             ),
           ),

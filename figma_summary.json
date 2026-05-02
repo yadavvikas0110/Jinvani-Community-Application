@@ -1,0 +1,720 @@
+{
+  "3": {
+    "bg_colors": [
+      "#131316",
+      "#eef2ff",
+      "#24262b",
+      "#d6d9dd",
+      "#181818",
+      "#515c97",
+      "#f6f6f5",
+      "#f0f1f3",
+      "#f29100",
+      "#d9d9d9"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Home",
+        "fontSize": 12.0,
+        "fontWeight": 600,
+        "color": "#2c4e84"
+      },
+      {
+        "type": "TEXT",
+        "text": "Feed",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Jobs",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Profile",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "All Properties",
+        "fontSize": 20.0,
+        "fontWeight": 600,
+        "color": "#181818"
+      },
+      {
+        "type": "TEXT",
+        "text": "All",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "Hotels",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#131316"
+      },
+      {
+        "type": "TEXT",
+        "text": "Dharamshala",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#131316"
+      },
+      {
+        "type": "TEXT",
+        "text": "Dharamshala",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "Shri Mahavir Dharamshala",
+        "fontSize": 18.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Palitana, Gujarat",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "4.8",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Free WiFi",
+        "fontSize": 13.0,
+        "fontWeight": 500,
+        "color": "#364153"
+      },
+      {
+        "type": "TEXT",
+        "text": "Parking",
+        "fontSize": 13.0,
+        "fontWeight": 500,
+        "color": "#364153"
+      }
+    ]
+  },
+  "4": {
+    "bg_colors": [
+      "#f8faff",
+      "#eb972f",
+      "#317bda",
+      "#ededf0",
+      "#fff1f2",
+      "#2c4e84",
+      "#6b58cc",
+      "#f9fafb",
+      "#24262b",
+      "#d6d9dd"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Home",
+        "fontSize": 12.0,
+        "fontWeight": 600,
+        "color": "#2c4e84"
+      },
+      {
+        "type": "TEXT",
+        "text": "Feed",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Jobs",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Profile",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#92949a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Dharamshala",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#1a5bb3"
+      },
+      {
+        "type": "TEXT",
+        "text": "4.8",
+        "fontSize": 12.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "(312)",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#757f8e"
+      },
+      {
+        "type": "TEXT",
+        "text": "Adinanath Dharamshala",
+        "fontSize": 18.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Mount Abu, Rajasthan",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "CHECK-IN",
+        "fontSize": 11.0,
+        "fontWeight": 600,
+        "color": "#355ac1"
+      },
+      {
+        "type": "TEXT",
+        "text": "12 Mar",
+        "fontSize": 12.0,
+        "fontWeight": 700,
+        "color": "#33363a"
+      },
+      {
+        "type": "TEXT",
+        "text": "Thursday,2026",
+        "fontSize": 11.0,
+        "fontWeight": 400,
+        "color": "#848e9e"
+      },
+      {
+        "type": "TEXT",
+        "text": "CHECK-OUT",
+        "fontSize": 11.0,
+        "fontWeight": 600,
+        "color": "#355ac1"
+      },
+      {
+        "type": "TEXT",
+        "text": "19 Mar",
+        "fontSize": 12.0,
+        "fontWeight": 700,
+        "color": "#33363a"
+      }
+    ]
+  },
+  "5": {
+    "bg_colors": [
+      "#f9fafb",
+      "#24262b",
+      "#d6d9dd",
+      "#f6f6f5",
+      "#211e1e",
+      "#4c4a53",
+      "#d9d9d9",
+      "#160a0a",
+      "#5b5fd9",
+      "#d6e4fb"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Total Amount",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#6a7282"
+      },
+      {
+        "type": "TEXT",
+        "text": "\u20b9784",
+        "fontSize": 20.0,
+        "fontWeight": 700,
+        "color": "#5b5fd9"
+      },
+      {
+        "type": "TEXT",
+        "text": "Proceed to Checkout",
+        "fontSize": 14.0,
+        "fontWeight": 600,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "All Properties",
+        "fontSize": 20.0,
+        "fontWeight": 600,
+        "color": "#211e1e"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking Summary",
+        "fontSize": 18.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Check-in",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "12 March 2026",
+        "fontSize": 15.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Check-out",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "19 March 2026",
+        "fontSize": 15.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Duration",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "7 Night",
+        "fontSize": 15.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Guests",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "1 Guests",
+        "fontSize": 15.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Rooms",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "1 Room",
+        "fontSize": 15.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      }
+    ]
+  },
+  "7": {
+    "bg_colors": [
+      "#9197aa",
+      "#24262b",
+      "#d6d9dd",
+      "#03b03f",
+      "#eefff4",
+      "#f6f6f5",
+      "#ebebeb",
+      "#211e1e",
+      "#207fff",
+      "#dcfce7"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Pay \u20b9560",
+        "fontSize": 14.0,
+        "fontWeight": 600,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "By proceeding, you agree to our Terms & Conditions",
+        "fontSize": 11.0,
+        "fontWeight": 400,
+        "color": "#6a7282"
+      },
+      {
+        "type": "TEXT",
+        "text": "Payment",
+        "fontSize": 20.0,
+        "fontWeight": 600,
+        "color": "#211e1e"
+      },
+      {
+        "type": "TEXT",
+        "text": "Select Payment Method",
+        "fontSize": 18.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "UPI",
+        "fontSize": 14.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Google Pay, PhonePe, Paytm",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Credit / Debit Card",
+        "fontSize": 14.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Visa, Mastercard, Rupay",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Net Banking",
+        "fontSize": 14.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "All major banks",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Wallets",
+        "fontSize": 14.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Paytm, Amazon Pay, Mobikwik",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Secure Payment",
+        "fontSize": 13.0,
+        "fontWeight": 600,
+        "color": "#077630"
+      },
+      {
+        "type": "TEXT",
+        "text": "Your payment information is encrypted and secure. We never store your card details.",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      }
+    ]
+  },
+  "Upcoming Booking": {
+    "bg_colors": [
+      "#eff2ff",
+      "#f6f6f5",
+      "#f7f7f7",
+      "#eeeeee",
+      "#211e1e",
+      "#d9d9d9",
+      "#54bb0c",
+      "#160a0a",
+      "#f3f4f6"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "My Booking",
+        "fontSize": 20.0,
+        "fontWeight": 600,
+        "color": "#211e1e"
+      },
+      {
+        "type": "TEXT",
+        "text": "Upcoming (2)",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#3e6ccc"
+      },
+      {
+        "type": "TEXT",
+        "text": "Past (1)",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#3f4753"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking ID",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#e3dcf4"
+      },
+      {
+        "type": "TEXT",
+        "text": "BK001",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "Confirmed",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "Dharamshala",
+        "fontSize": 10.0,
+        "fontWeight": 500,
+        "color": "#1a5bb3"
+      },
+      {
+        "type": "TEXT",
+        "text": "Adinanath Dharamshala",
+        "fontSize": 15.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Palitana, Gujarat",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Check In",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "12:00 pm",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Check In",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "12:00 pm",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Check In",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "12:00 pm",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "color": "#101828"
+      }
+    ]
+  },
+  "10": {
+    "bg_colors": [
+      "#24262b",
+      "#d6d9dd",
+      "#0e9f0e",
+      "#9333ea",
+      "#f6f6f5",
+      "#1c3563",
+      "#1f0e3b",
+      "#d9d9d9",
+      "#dbeafe",
+      "#2563eb"
+    ],
+    "sample_texts": [
+      {
+        "type": "TEXT",
+        "text": "Your payment was successful!",
+        "fontSize": 20.0,
+        "fontWeight": 700,
+        "color": "#ffffff"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking Summary",
+        "fontSize": 18.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Dharamshala",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "color": "#1a5bb3"
+      },
+      {
+        "type": "TEXT",
+        "text": "Adinanath Dharamshala",
+        "fontSize": 15.0,
+        "fontWeight": 600,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Economy Room",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Booking Status: Confirmed",
+        "fontSize": 13.0,
+        "fontWeight": 600,
+        "color": "#0e9f0e"
+      },
+      {
+        "type": "TEXT",
+        "text": "Room Type",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Deluxe Room",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Guest Name",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "Shaan",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Check In",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "12:00 pm",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Check Out",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      },
+      {
+        "type": "TEXT",
+        "text": "10:00 am",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "color": "#101828"
+      },
+      {
+        "type": "TEXT",
+        "text": "Duration",
+        "fontSize": 15.0,
+        "fontWeight": 400,
+        "color": "#4a5565"
+      }
+    ]
+  }
+}

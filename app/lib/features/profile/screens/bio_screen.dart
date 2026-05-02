@@ -172,13 +172,13 @@ class _BioScreenState extends ConsumerState<BioScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 6, vertical: 3),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFFE8E9),
+                          color: AppColors.danger.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(22),
                         ),
                         child: const Text(
                           'Required',
                           style: TextStyle(
-                            color: Color(0xFFD83E3E),
+                            color: AppColors.danger,
                             fontSize: 10,
                           ),
                         ),

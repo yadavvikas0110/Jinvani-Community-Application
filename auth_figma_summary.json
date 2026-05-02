@@ -1,0 +1,1337 @@
+{
+  "Sign Up Flow": {
+    "iPhone 13 mini - 49": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#24262b",
+        "#9ea1a8",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#b7a6d2",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Full Name",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Your full name",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Email",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "priya@example.com",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Mobile Number",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "+91 9873467265",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Already have an account?",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Login",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Please fill in the details below",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#c6c5c7"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "iPhone 13 mini - 50": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#121a2c",
+        "#24262b",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#b7a6d2",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Full Name",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Anup Jain",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Email",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "anup@gmail.com",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Mobile Number",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "+91 9873467265",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Already have an account?",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Login",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Please fill in the details below",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#c6c5c7"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "iPhone 13 mini - 51": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#24262b",
+        "#c4c4c4",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#cdd1d8",
+        "#b7a6d2"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Mobile Number / Email",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Verify OTP",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Didn\u2019t received the code",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Resend",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter OTP",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "We have sent an 6 digit OTP to your registered mobile number and email address.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#c6c5c7"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "2",
+          "fontSize": 8.0,
+          "fontWeight": 400,
+          "color": "#49377e"
+        }
+      ]
+    },
+    "iPhone 13 mini - 52": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#24262b",
+        "#c4c4c4",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#cdd1d8",
+        "#b7a6d2"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Mobile Number / Email",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "1",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "1",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "1",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "1",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "1",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "1",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Verify OTP",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Didn\u2019t received the code",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Resend",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter OTP",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "We have sent an 6 digit OTP to your registered mobile number and email address.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#c6c5c7"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "2",
+          "fontSize": 8.0,
+          "fontWeight": 400,
+          "color": "#49377e"
+        }
+      ]
+    },
+    "iPhone 13 mini - 53": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#24262b",
+        "#9ea1a8",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Enter Password",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Min 6 character",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Confirm Password",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Min 6 character",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Already have an account?",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Login",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Reset Password",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Verify OTP",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "3",
+          "fontSize": 8.0,
+          "fontWeight": 400,
+          "color": "#49377e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Create Password",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "iPhone 13 mini - 54": {
+      "bg_colors": [
+        "#6e739f",
+        "#423a3a",
+        "#efbe4a",
+        "#edecef",
+        "#faae16",
+        "#24262b",
+        "#488100",
+        "#9ea1a8",
+        "#d6d9dd",
+        "#d9d9d9"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Set Password",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Set Password",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "8 characters minimum",
+          "fontSize": 16.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "a number",
+          "fontSize": 16.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "a symbol",
+          "fontSize": 16.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Already have an account?",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Login",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Reset Password",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Enter Details",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Verify OTP",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "3",
+          "fontSize": 8.0,
+          "fontWeight": 400,
+          "color": "#49377e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Create Password",
+          "fontSize": 12.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "iPhone 13 mini - 55": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#423a3a",
+        "#fbbc05",
+        "#4285f4",
+        "#34a853",
+        "#9ea1a8",
+        "#eb4335",
+        "#d9d9d9",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Jinvani Community",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Welcome Back",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#242529"
+        },
+        {
+          "type": "TEXT",
+          "text": "Login to continue",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#74717d"
+        },
+        {
+          "type": "TEXT",
+          "text": "Email or Mobile",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "priya@example.com",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Password",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Forgot Password?",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Or continue with",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#6c7278"
+        },
+        {
+          "type": "TEXT",
+          "text": "Google",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#1a1c1e"
+        },
+        {
+          "type": "TEXT",
+          "text": " Apple",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#1a1c1e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Facebook",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#1a1c1e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Didn\u2019t have an account?",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        }
+      ]
+    },
+    "Goal Selection/Profile": {
+      "bg_colors": [
+        "#f6f6f5",
+        "#24262b",
+        "#873f30",
+        "#253142",
+        "#f19a00",
+        "#1855ca",
+        "#d6d9dd",
+        "#ffd92e",
+        "#f4d398",
+        "#ffeb87"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Goal Selection",
+          "fontSize": 20.0,
+          "fontWeight": 600,
+          "color": "#181818"
+        },
+        {
+          "type": "TEXT",
+          "text": "Finish Profile Setup",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "What are your goals?",
+          "fontSize": 18.0,
+          "fontWeight": 700,
+          "color": "#101828"
+        },
+        {
+          "type": "TEXT",
+          "text": "Select all that apply \u2014 we'll personalise your experience",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#888c96"
+        },
+        {
+          "type": "TEXT",
+          "text": "Business Support",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#101828"
+        },
+        {
+          "type": "TEXT",
+          "text": "Connect with investors, mentors and resources to grow your business",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#666d79"
+        },
+        {
+          "type": "TEXT",
+          "text": "Matchmaking",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#101828"
+        },
+        {
+          "type": "TEXT",
+          "text": "Find compatible matches within the Jain community for marriage",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#666d79"
+        },
+        {
+          "type": "TEXT",
+          "text": "Job Assistance",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#101828"
+        },
+        {
+          "type": "TEXT",
+          "text": "Get matched with job opportunities, career guidance and placement support",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#666d79"
+        }
+      ]
+    }
+  },
+  "Splash Screen": {
+    "iPhone 13 mini - 59": {
+      "bg_colors": [],
+      "sample_texts": []
+    }
+  },
+  "Login Flow": {
+    "iPhone 13 mini - 30": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#423a3a",
+        "#fbbc05",
+        "#4285f4",
+        "#34a853",
+        "#9ea1a8",
+        "#eb4335",
+        "#d9d9d9",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Jinvani Community",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Welcome Back",
+          "fontSize": 20.0,
+          "fontWeight": 700,
+          "color": "#242529"
+        },
+        {
+          "type": "TEXT",
+          "text": "Login to continue",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#74717d"
+        },
+        {
+          "type": "TEXT",
+          "text": "Email or Mobile",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "priya@example.com",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Password",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Forgot Password?",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#9338d5"
+        },
+        {
+          "type": "TEXT",
+          "text": "Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Or continue with",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#6c7278"
+        },
+        {
+          "type": "TEXT",
+          "text": "Google",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#1a1c1e"
+        },
+        {
+          "type": "TEXT",
+          "text": " Apple",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#1a1c1e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Facebook",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#1a1c1e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Didn\u2019t have an account?",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#737b8c"
+        }
+      ]
+    },
+    "iPhone 13 mini - 40": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#20bf55",
+        "#edebea",
+        "#24262b",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Verify Your Identity",
+          "fontSize": 24.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete KYC to unlock all features",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#a1a1a1"
+        },
+        {
+          "type": "TEXT",
+          "text": "Id Proof",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Select document type",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Your documents are encrypted and stored securely. We never share your data.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Submit & Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "iPhone 13 mini - 41": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#20bf55",
+        "#eff6ff",
+        "#edebea",
+        "#24262b",
+        "#3e6dcd",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Verify Your Identity",
+          "fontSize": 24.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete KYC to unlock all features",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#a1a1a1"
+        },
+        {
+          "type": "TEXT",
+          "text": "Id Proof",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Aadhar Card",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "front Side",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Click to upload",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#3e6dcd"
+        },
+        {
+          "type": "TEXT",
+          "text": "PDF, JPG, PNG \u00b7 Max 5MB",
+          "fontSize": 11.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Back Side",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Click to upload",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#3e6dcd"
+        },
+        {
+          "type": "TEXT",
+          "text": "PDF, JPG, PNG \u00b7 Max 5MB",
+          "fontSize": 11.0,
+          "fontWeight": 400,
+          "color": "#9ea1a8"
+        },
+        {
+          "type": "TEXT",
+          "text": "Your documents are encrypted and stored securely. We never share your data.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Submit & Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "iPhone 13 mini - 42": {
+      "bg_colors": [
+        "#6e739f",
+        "#efbe4a",
+        "#20bf55",
+        "#edebea",
+        "#24262b",
+        "#d6d9dd",
+        "#d9d9d9",
+        "#4c4a53"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Verify Your Identity",
+          "fontSize": 24.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete KYC to unlock all features",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#a1a1a1"
+        },
+        {
+          "type": "TEXT",
+          "text": "Id Proof",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Aadhar Card",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "front Side",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Front Side.png",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#2c2d2f"
+        },
+        {
+          "type": "TEXT",
+          "text": "Back Side",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Gorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "fontSize": 14.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Front Side.png",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#2c2d2f"
+        },
+        {
+          "type": "TEXT",
+          "text": "Your documents are encrypted and stored securely. We never share your data.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Submit & Continue",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1254 @@
+{
+  "Family Tree Flow": {
+    "Family Tree Sender's Flow - Existing User": {
+      "bg_colors": [
+        "#3c97d3",
+        "#ffe7e8",
+        "#ff8800",
+        "#c16b3f",
+        "#4c4a53",
+        "#d5cec2",
+        "#c18e59",
+        "#3779be",
+        "#2e5187",
+        "#e7e4dd"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Search here",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "85%",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete your profile to unlock all features",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Job",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Booking",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        }
+      ]
+    },
+    "Family Tree Receiver's Flow - Existing User": {
+      "bg_colors": [
+        "#3c97d3",
+        "#0e963b",
+        "#c16b3f",
+        "#d5cec2",
+        "#c18e59",
+        "#3779be",
+        "#2e5187",
+        "#e7e4dd",
+        "#d73e3e",
+        "#ef4444"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 15.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Pune, Maharashtra",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "1 hour ago",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Wants to add you as brother",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#3f488f"
+        },
+        {
+          "type": "TEXT",
+          "text": "5 mutual connections",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#99a0af"
+        },
+        {
+          "type": "TEXT",
+          "text": "View Request",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 15.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Pune, Maharashtra",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "1 hour ago",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Wants to add you as brother",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#3f488f"
+        },
+        {
+          "type": "TEXT",
+          "text": "5 mutual connections",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#99a0af"
+        },
+        {
+          "type": "TEXT",
+          "text": "View Request",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 15.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Pune, Maharashtra",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "1 hour ago",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Wants to add you as brother",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#3f488f"
+        },
+        {
+          "type": "TEXT",
+          "text": "5 mutual connections",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#99a0af"
+        },
+        {
+          "type": "TEXT",
+          "text": "View Request",
+          "fontSize": 10.0,
+          "fontWeight": 500,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 15.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Pune, Maharashtra",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        }
+      ]
+    },
+    "Family Tree Sender's Flow if the receiver is not registered": {
+      "bg_colors": [
+        "#3c97d3",
+        "#ffe7e8",
+        "#0e963b",
+        "#ff8800",
+        "#c16b3f",
+        "#4c4a53",
+        "#d5cec2",
+        "#c18e59",
+        "#3779be",
+        "#2e5187"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Search here",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "85%",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete your profile to unlock all features",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Job",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Booking",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        }
+      ]
+    },
+    "Family Tree Receiver's Flow if the receiver is not registered": {
+      "bg_colors": [
+        "#3c97d3",
+        "#0e963b",
+        "#ffe7e8",
+        "#c16b3f",
+        "#d5cec2",
+        "#c18e59",
+        "#3779be",
+        "#2e5187",
+        "#e7e4dd",
+        "#d73e3e"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Puneet Jain",
+          "fontSize": 14.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Mumbai, Maharashtra",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#dbd8e7"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family Request",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#47609e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Puneet Jain wants to add you as Brother",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "2 min ago",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Relation: Brother",
+          "fontSize": 10.0,
+          "fontWeight": 700,
+          "color": "#3f488f"
+        },
+        {
+          "type": "TEXT",
+          "text": "Your documents are encrypted and stored securely. We never share your data.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile",
+          "fontSize": 20.0,
+          "fontWeight": 600,
+          "color": "#181818"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family Requests",
+          "fontSize": 20.0,
+          "fontWeight": 600,
+          "color": "#181818"
+        },
+        {
+          "type": "TEXT",
+          "text": "Reject",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Accept",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Relation: Brother",
+          "fontSize": 10.0,
+          "fontWeight": 700,
+          "color": "#3f488f"
+        },
+        {
+          "type": "TEXT",
+          "text": "Relationship Summary",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "From",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#abafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Puneet Jain",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Relation to you",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#abafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Brother",
+          "fontSize": 10.0,
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Visibility",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#abafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family Tree (Public)",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "You will be added as\u00a0Brother\u00a0to\u00a0Rahul Sharma's family tree. This action will be visible to mutual connections.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#0e963b"
+        }
+      ]
+    }
+  },
+  "Directory Flow": {
+    "Jain Calender": {
+      "bg_colors": [
+        "#f3f3f3",
+        "#ffdb67",
+        "#e6ecfb",
+        "#f6f6f5",
+        "#ffe4e1",
+        "#24262b",
+        "#181818",
+        "#d73e3e",
+        "#f8efff",
+        "#f59e0b"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 20.0,
+          "fontWeight": 600,
+          "color": "#181818"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 18.0,
+          "fontWeight": 700,
+          "color": "#101828"
+        },
+        {
+          "type": "TEXT",
+          "text": "Explore Jain community resources",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#a0a2a9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jai Jinendra",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#c16ef6"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Trusted, admin-curated profiles for our community",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#9499a3"
+        },
+        {
+          "type": "TEXT",
+          "text": "Featured",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Admin Curated",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Comprehensive Directory",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Comprehensive Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Connect",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#1a1a1a"
+        },
+        {
+          "type": "TEXT",
+          "text": "52k+",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Members",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "3",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Countries",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "Easy",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Access",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "Explore",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Featured",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        }
+      ]
+    },
+    "Comprehensive Directory": {
+      "bg_colors": [
+        "#3c97d3",
+        "#d73e3e",
+        "#6b5ce7",
+        "#e7e4dd",
+        "#2c4e84",
+        "#f4f4f7",
+        "#d6d9dd",
+        "#fde0be",
+        "#96c93d",
+        "#193361"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Search here",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#494949"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "85%",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Complete your profile to unlock all features",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#fdb913"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Job",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Booking",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Family",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "3 Family Requests",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Tap to view & respond",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#47609e"
+        },
+        {
+          "type": "TEXT",
+          "text": "Quick View",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jain Social Worker Mumbai 10 min ago",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#aaafb9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Proud to announce that our community food bank served 500+ families this month! \ud83d\ude4f Jai Jinendra to all volunteers who made this possible. Together we grow stronger.",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#4c4a53"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#5c5965"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "143",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#8f8d98"
+        },
+        {
+          "type": "TEXT",
+          "text": "Priya Shah",
+          "fontSize": 14.0,
+          "fontWeight": 500,
+          "color": "#121a2c"
+        }
+      ]
+    },
+    "Jain Location": {
+      "bg_colors": [
+        "#ffdb67",
+        "#f1f0fd",
+        "#e6ecfb",
+        "#ffe4e1",
+        "#d73e3e",
+        "#6b5ce7",
+        "#2c4e84",
+        "#d6d9dd",
+        "#f4f4f8",
+        "#6b7280"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 20.0,
+          "fontWeight": 600,
+          "color": "#181818"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 18.0,
+          "fontWeight": 700,
+          "color": "#101828"
+        },
+        {
+          "type": "TEXT",
+          "text": "Explore Jain community resources",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#a0a2a9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jai Jinendra",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#c16ef6"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Trusted, admin-curated profiles for our community",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#9499a3"
+        },
+        {
+          "type": "TEXT",
+          "text": "Featured",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Admin Curated",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Comprehensive Directory",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Comprehensive Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Connect",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#1a1a1a"
+        },
+        {
+          "type": "TEXT",
+          "text": "52k+",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Members",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "3",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Countries",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "Easy",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Access",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "Explore",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Featured",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        }
+      ]
+    },
+    "Jain Community Services": {
+      "bg_colors": [
+        "#ffdb67",
+        "#f1f0fd",
+        "#e6ecfb",
+        "#ffe4e1",
+        "#d73e3e",
+        "#5970af",
+        "#2c4e84",
+        "#d6d9dd",
+        "#f4f4f8",
+        "#193361"
+      ],
+      "sample_texts": [
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 20.0,
+          "fontWeight": 600,
+          "color": "#181818"
+        },
+        {
+          "type": "TEXT",
+          "text": "Directory",
+          "fontSize": 18.0,
+          "fontWeight": 700,
+          "color": "#101828"
+        },
+        {
+          "type": "TEXT",
+          "text": "Explore Jain community resources",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#a0a2a9"
+        },
+        {
+          "type": "TEXT",
+          "text": "Jai Jinendra",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#c16ef6"
+        },
+        {
+          "type": "TEXT",
+          "text": "Profile Completion",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Trusted, admin-curated profiles for our community",
+          "fontSize": 12.0,
+          "fontWeight": 400,
+          "color": "#9499a3"
+        },
+        {
+          "type": "TEXT",
+          "text": "Featured",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "Admin Curated",
+          "fontSize": 10.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        },
+        {
+          "type": "TEXT",
+          "text": "Comprehensive Directory",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Comprehensive Directory",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#ffffff"
+        },
+        {
+          "type": "TEXT",
+          "text": "Connect",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#1a1a1a"
+        },
+        {
+          "type": "TEXT",
+          "text": "52k+",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Members",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "3",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Countries",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "Easy",
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Access",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#6b6b6b"
+        },
+        {
+          "type": "TEXT",
+          "text": "Explore",
+          "fontSize": 12.0,
+          "fontWeight": 600,
+          "color": "#173160"
+        },
+        {
+          "type": "TEXT",
+          "text": "Featured",
+          "fontSize": 14.0,
+          "fontWeight": 600,
+          "color": "#000000"
+        },
+        {
+          "type": "TEXT",
+          "text": "View All",
+          "fontSize": 13.0,
+          "fontWeight": 400,
+          "color": "#395a91"
+        }
+      ]
+    }
+  }
+}

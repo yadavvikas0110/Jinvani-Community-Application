@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/theme/app_colors.dart';
 import '../state/booking_controller.dart';
 
 class BookingConfirmedScreen extends ConsumerWidget {
   final String bookingId;
   const BookingConfirmedScreen({super.key, required this.bookingId});
 
-  static const _purple = Color(0xFF7C3AED);
+  static const _purple = AppColors.accent;
 
   String _fmtDate(DateTime d) {
     const months = [
@@ -35,9 +36,9 @@ class BookingConfirmedScreen extends ConsumerWidget {
                 child: Container(
                   width: double.infinity,
                   padding: const EdgeInsets.fromLTRB(24, 60, 24, 40),
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color(0xFF1E1B4B), Color(0xFF7C3AED)],
+                      colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
@@ -241,7 +242,7 @@ class BookingConfirmedScreen extends ConsumerWidget {
                             children: const [
                               _InfoItem(
                                 icon: Icons.access_time_outlined,
-                                iconColor: Color(0xFF7C3AED),
+                                iconColor: AppColors.accent,
                                 text: 'Check-in time is 12:00 PM. Early check-in is subject to availability.',
                               ),
                               SizedBox(height: 12),
@@ -267,8 +268,8 @@ class BookingConfirmedScreen extends ConsumerWidget {
                         width: double.infinity,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF1E1B4B), _purple],
+                            gradient: LinearGradient(
+                              colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/theme/app_colors.dart';
 import '../state/booking_controller.dart';
 
-const _purple = Color(0xFF7C3AED);
+const _purple = AppColors.accent;
 
 const _paymentMethods = [
   {
@@ -36,7 +37,7 @@ const _paymentMethods = [
     'sub': 'Mobikwik, Amazon Pay & more',
     'icon': Icons.wallet_outlined,
     'bg': Color(0xFFF5F3FF),
-    'iconColor': Color(0xFF7C3AED),
+    'iconColor': AppColors.accent,
   },
 ];
 
@@ -56,16 +57,23 @@ class BookingPaymentScreen extends ConsumerWidget {
         surfaceTintColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.black12,
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back,
               color: Color(0xFF121A2C), size: 22),
-          onPressed: () => Navigator.of(context).maybePop(),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/booking');
+            }
+          },
         ),
         title: const Text(
           'Payment',
           style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
             color: Color(0xFF121A2C),
           ),
         ),
@@ -77,8 +85,8 @@ class BookingPaymentScreen extends ConsumerWidget {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Color(0xFF1E1B4B), Color(0xFF7C3AED)],
+              gradient: LinearGradient(
+                colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -284,11 +292,11 @@ class BookingPaymentScreen extends ConsumerWidget {
                 width: double.infinity,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF1E1B4B), _purple],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    ),
+                      gradient: LinearGradient(
+                        colors: [AppColors.accent, AppColors.accent.withValues(alpha: 0.8)],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: ElevatedButton(

@@ -31,3 +31,5 @@ app/android/app/release/
 
 # Design
 design-refs/*/screenshots/*.png
+
+figma_node.json

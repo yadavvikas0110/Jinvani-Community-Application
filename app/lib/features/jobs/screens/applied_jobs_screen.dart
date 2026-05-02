@@ -26,7 +26,7 @@ class AppliedJobsScreen extends ConsumerWidget {
           'Applied jobs',
           style: TextStyle(
             color: AppColors.textPrimary,
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -101,7 +101,7 @@ class _ApplicationCard extends StatelessWidget {
                 Text(
                   app.jobTitle,
                   style: const TextStyle(
-                    fontSize: 15,
+                    fontSize: 16,
                     fontWeight: FontWeight.w700,
                     color: Color(0xFF111827),
                   ),
@@ -110,7 +110,7 @@ class _ApplicationCard extends StatelessWidget {
                 Text(
                   app.company,
                   style: const TextStyle(
-                    fontSize: 13,
+                    fontSize: 12,
                     color: Color(0xFF374151),
                   ),
                 ),
@@ -146,7 +146,7 @@ class _ApplicationCard extends StatelessWidget {
           Text(
             app.appliedAt,
             style: const TextStyle(
-                fontSize: 11, color: AppColors.textMuted),
+                fontSize: 10, color: AppColors.textMuted),
           ),
         ],
       ),

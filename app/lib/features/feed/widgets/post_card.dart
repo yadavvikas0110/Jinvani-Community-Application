@@ -122,7 +122,7 @@ class PostCard extends StatelessWidget {
                       ],
                       Text(post.body,
                           style: const TextStyle(
-                              color: Color(0xFF4C4A53), fontSize: 13, height: 1.4)),
+                              color: Color(0xFF4C4A53), fontSize: 12, height: 1.4)),
                     ],
                   ),
                 ),
@@ -202,7 +202,7 @@ class _PostAction extends StatelessWidget {
             const SizedBox(width: 4),
             Text(label,
                 style: TextStyle(
-                    color: color, fontSize: 11, fontWeight: FontWeight.w500)),
+                    color: color, fontSize: 10, fontWeight: FontWeight.w500)),
           ],
         ),
       ),

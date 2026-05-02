@@ -284,7 +284,7 @@ class _JobsListingScreen extends ConsumerWidget {
             title: const Text(
               'Jobs',
               style: TextStyle(
-                fontSize: 17,
+                fontSize: 18,
                 fontWeight: FontWeight.w700,
                 color: AppColors.textPrimary,
               ),

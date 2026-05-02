@@ -45,7 +45,7 @@ class SignupHeader extends StatelessWidget {
             const SizedBox(height: 4),
             Text(title, style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w700)),
             const SizedBox(height: 4),
-            Text(subtitle, style: const TextStyle(color: Color(0xFFC6C6C7), fontSize: 14)),
+            Text(subtitle, style: const TextStyle(color: Colors.white70, fontSize: 14)),
             const SizedBox(height: 16),
             Row(
               children: List.generate(steps.length, (i) {
@@ -62,7 +62,7 @@ class SignupHeader extends StatelessWidget {
                       Text(
                         label,
                         style: TextStyle(
-                          color: active || done ? Colors.white : const Color(0xFFB8A6D3),
+                          color: active || done ? Colors.white : Colors.white38,
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
@@ -95,13 +95,13 @@ class _StepDot extends StatelessWidget {
       height: 14,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: active ? Colors.white : const Color(0xFFB8A6D3),
+        color: active ? Colors.white : Colors.white38,
         shape: BoxShape.circle,
       ),
       child: Text(
         '$step',
         style: TextStyle(
-          color: active ? const Color(0xFF49377E) : Colors.white,
+          color: active ? AppColors.headerStart : Colors.white,
           fontSize: 9,
           fontWeight: FontWeight.w500,
         ),

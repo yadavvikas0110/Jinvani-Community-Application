@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
 import '../models/property.dart';
 
 class PropertyCard extends StatelessWidget {
@@ -68,7 +69,7 @@ class PropertyCard extends StatelessWidget {
                             : Icons.bookmark_border,
                         size: 18,
                         color: property.isSaved
-                            ? const Color(0xFF7C3AED)
+                            ? AppColors.accent
                             : const Color(0xFF666666),
                       ),
                     ),
@@ -152,7 +153,7 @@ class PropertyCard extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w800,
-                                color: Color(0xFF7C3AED),
+                                color: AppColors.accent,
                               ),
                             ),
                             const TextSpan(
@@ -202,12 +203,12 @@ class _InfoPill extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 12, color: const Color(0xFF7C3AED)),
+            Icon(icon, size: 12, color: AppColors.accent),
             const SizedBox(width: 3),
             Text(label,
                 style: const TextStyle(
                     fontSize: 11,
-                    color: Color(0xFF7C3AED),
+                    color: AppColors.accent,
                     fontWeight: FontWeight.w500)),
           ],
         ),
@@ -234,7 +235,7 @@ class CityCategoryPill extends StatelessWidget {
           height: 36,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
-            color: selected ? const Color(0xFF7C3AED) : const Color(0xFFEDE9FF),
+            color: selected ? AppColors.accent : const Color(0xFFEDE9FF),
             borderRadius: BorderRadius.circular(20),
           ),
           alignment: Alignment.center,
@@ -243,7 +244,7 @@ class CityCategoryPill extends StatelessWidget {
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w500,
-              color: selected ? Colors.white : const Color(0xFF7C3AED),
+              color: selected ? Colors.white : AppColors.accent,
             ),
           ),
         ),

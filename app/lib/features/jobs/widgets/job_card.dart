@@ -43,7 +43,7 @@ class JobCard extends StatelessWidget {
                       Text(
                         job.title,
                         style: const TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           fontWeight: FontWeight.w700,
                           color: Color(0xFF111827),
                           letterSpacing: 0.1,
@@ -53,7 +53,7 @@ class JobCard extends StatelessWidget {
                       Text(
                         job.company,
                         style: const TextStyle(
-                            fontSize: 13, color: Color(0xFF374151)),
+                            fontSize: 12, color: Color(0xFF374151)),
                       ),
                     ],
                   ),
@@ -105,7 +105,7 @@ class JobCard extends StatelessWidget {
                 Text(
                   job.postedAt,
                   style: const TextStyle(
-                    fontSize: 11,
+                    fontSize: 10,
                     color: AppColors.textMuted,
                   ),
                 ),

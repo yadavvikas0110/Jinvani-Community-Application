@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/theme/app_colors.dart';
 import '../models/property.dart';
 import '../state/booking_controller.dart';
 
 class PropertyListScreen extends ConsumerWidget {
   const PropertyListScreen({super.key});
 
-  static const _purple = Color(0xFF7C3AED);
+  static const _purple = AppColors.accent;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,16 +22,23 @@ class PropertyListScreen extends ConsumerWidget {
         surfaceTintColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.black12,
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back,
               color: Color(0xFF121A2C), size: 22),
-          onPressed: () => Navigator.of(context).maybePop(),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/booking');
+            }
+          },
         ),
         title: const Text(
           'All Properties',
           style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
             color: Color(0xFF121A2C),
           ),
         ),
@@ -116,7 +124,7 @@ class _PropertyListCard extends StatelessWidget {
 
   const _PropertyListCard({required this.property, required this.onTap});
 
-  static const _purple = Color(0xFF7C3AED);
+  static const _purple = AppColors.accent;
 
   @override
   Widget build(BuildContext context) {
@@ -150,10 +158,9 @@ class _PropertyListCard extends StatelessWidget {
                     height: 180,
                     color: const Color(0xFFEDE9FF),
                     child: const Icon(Icons.apartment_outlined,
-                        size: 48, color: Color(0xFF7C3AED)),
+                        size: 48, color: AppColors.accent)),
                   ),
                 ),
-              ),
               Positioned(
                 top: 12,
                 left: 12,
